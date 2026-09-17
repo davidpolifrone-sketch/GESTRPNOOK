@@ -1328,7 +1328,21 @@ async function cargarDatos(){
       if(d2) fac=d2.rows||d2.facturas||d2.data||(Array.isArray(d2)?d2:null);
     }
     if(typeof fac==="string"){try{fac=JSON.parse(fac);}catch(e){fac=null;}}
-    DATA = Array.isArray(fac)?fac:[];
+    DATA = Array.isArray(fac)?fac.map(r=>({
+      ...r,
+      id: r.id,
+      fechaCobro: r.fechaCobro||"",
+      fechaFactura: r.fechaFactura||"",
+      proveedor: r.proveedor||"",
+      cliente: r.cliente||"",
+      nFactura: r.nFactura||r.numFactura||"",
+      obra: r.obra||"",
+      tipo: r.tipo||"",
+      importe: Number(r.importe)||0,
+      pagado: r.pagado===true||r.pagado==="TRUE"||r.pagado==="true"||r.pagado===1||r.pagado==="1",
+      gestoria: r.gestoria||"",
+      concepto: r.concepto||"",
+    })):[];
     if(FACTURAS_MANUALES.length)DATA=DATA.concat(FACTURAS_MANUALES);
     renderPaginaActual();
     setSB("Datos cargados"+(DATA.length?"":" · sin facturas (revisar lectura del Sheet)"),"ok");
@@ -1643,7 +1657,7 @@ function renderFacturas(){
   let base=DATA.filter(r=>!esF(r));
   if(anyo!=="all")base=base.filter(r=>(r.fechaCobro||r.fechaFactura||"").startsWith(anyo));
   if(mes!=="all")base=base.filter(r=>(r.fechaCobro||r.fechaFactura||"").slice(5,7)===mes);
-  if(search)base=base.filter(r=>[r.proveedor,r.cliente,r.concepto,r.obra,r.numFactura].some(v=>(v||"").toLowerCase().includes(search)));
+  if(search)base=base.filter(r=>[r.proveedor,r.cliente,r.concepto,r.obra,r.nFactura].some(v=>(v||"").toLowerCase().includes(search)));
 
   const emitidas=base.filter(r=>r.importe>0);
   const recibidas=base.filter(r=>r.importe<0);
@@ -1683,7 +1697,7 @@ function renderFacturas(){
       <td>${fmtF(r.fechaCobro)}</td>
       <td>${fmtF(r.fechaFactura)}</td>
       <td style="font-weight:600;">${r.proveedor||r.cliente||'—'}</td>
-      <td>${r.numFactura||'—'}</td>
+      <td>${r.nFactura||'—'}</td>
       <td>${r.obra||'—'}</td>
       <td style="text-align:right;font-weight:700;color:${isEmi?'var(--green)':'var(--red)'};">${(isEmi?'+':'-')+eur(Math.abs(imp))}</td>
     </tr>`;
