@@ -7,29 +7,13 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{height:100%;}
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  font-size:14px;
-  line-height:1.5;
-  color:#111827;
-  background:#F5F6F8;
-  min-height:100%;
-  display:flex;
-  flex-direction:column;
-}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-size:15px;line-height:1.55;color:#1C1C1C;background:#F2F2F2;margin:0;padding:0;min-height:100vh;display:flex;flex-direction:column;}
 
 /* ── VARIABLES ── */
-:root{
-  --bg:#FAF7F4;--surface:#FFFFFF;--border:#E5E7EB;--border2:#F3F4F6;
-  --brown:#2C1810;--brown2:#6B4A35;--orange:#C4714A;--orange-d:#A85E3A;--orange-bg:#FAF3EE;
-  --muted:#6B7280;--muted2:#9CA3AF;--green:#1A7A3F;--green-bg:#ECFDF5;
-  --red:#C0392B;--red-bg:#FEF2F2;--blue:#2E6B8A;--blue-bg:#EFF6FF;--purple:#7C3AED;
-  --shadow:0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 12px rgba(0,0,0,0.08);
-  --r:10px;--r-sm:6px;
-}
+:root{--bg:#F2F2F2;--surface:#FFFFFF;--border:#DDDCDA;--border2:#EAEAEA;--brown:#1C1C1C;--brown2:#3A3A3A;--orange:#C4714A;--orange-d:#A85E3A;--orange-bg:#FAF0EA;--muted:#6B6560;--muted2:#9B9590;--green:#2D6A4F;--green-bg:#EAF4EE;--red:#9B2226;--red-bg:#F5EAEA;--blue:#1D4E6B;--blue-bg:#EAF0F5;--purple:#5C3D7A;--text:#1C1C1C;--shadow:0 1px 4px rgba(0,0,0,.07);--shadow-md:0 4px 16px rgba(0,0,0,.10);--r:10px;--r-sm:6px;}
 
 /* ── LOGIN ── */
-#login-overlay{position:fixed;inset:0;background:#ffffff;z-index:999;display:flex;align-items:center;justify-content:center;}
+#login-overlay{position:fixed;inset:0;background:var(--surface);z-index:999;display:flex;align-items:center;justify-content:center;}
 .login-topname{position:absolute;top:28px;left:34px;font-size:20px;font-weight:800;color:var(--brown);letter-spacing:-.01em;}
 .login-footcopy{position:absolute;bottom:22px;left:34px;font-size:12px;color:var(--muted2);}
 .login-brand{flex:1;min-width:0;background:linear-gradient(150deg,#5A2A1C 0%,#3E1B10 55%,#2A1008 100%);color:#fff;padding:52px 60px;display:flex;flex-direction:column;justify-content:space-between;}
@@ -50,20 +34,20 @@ body{
 .login-sub{font-size:14px;color:var(--muted);margin-bottom:28px;}
 .login-field{margin-bottom:16px;}
 .login-label{display:block;font-size:13px;font-weight:700;color:var(--brown);margin-bottom:6px;}
-.login-input{width:100%;border:1.5px solid var(--border);border-radius:var(--r-sm);padding:11px 14px;font-size:14px;color:var(--brown);outline:none;background:#fff;font-family:inherit;}
+.login-input{width:100%;border:1.5px solid var(--border);border-radius:var(--r-sm);padding:11px 14px;font-size:14px;color:var(--brown);outline:none;background:var(--surface);font-family:inherit;}
 .login-input:focus{border-color:#6E2A1A;}
-.login-btn{width:100%;padding:12px;border:none;border-radius:var(--r-sm);background:var(--brown);color:#fff;font-size:15px;font-weight:700;cursor:pointer;margin-top:6px;}
+.login-btn{width:100%;padding:12px;border:none;border-radius:var(--r-sm);background:#6E2A1A;color:#fff;font-size:15px;font-weight:700;cursor:pointer;margin-top:6px;}
 .login-btn:hover{background:#5A2214;}
 .login-error{color:var(--red);font-size:13px;margin-top:8px;min-height:16px;}
 @media(max-width:840px){.login-brand{display:none;}}
 
 /* ── TOPBAR ── */
-#topbar{background:var(--orange);display:none;align-items:center;padding:0 32px;height:54px;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(74,46,27,0.18);}
-.topbar-logo{font-size:15px;font-weight:900;color:var(--brown);letter-spacing:.02em;margin-right:28px;white-space:nowrap;}
+#topbar{background:#2C2C2C;display:none;align-items:center;padding:0 32px;height:76px;position:sticky;top:0;z-index:200;}
+.topbar-logo{font-size:16px;font-weight:900;color:#fff;letter-spacing:.04em;margin-right:32px;}
 .topbar-nav{display:flex;gap:0;flex:1;}
-.topbar-tab{height:54px;padding:0 20px;border:none;background:none;font-size:14px;font-weight:600;color:rgba(44,24,16,0.55);cursor:pointer;border-bottom:2px solid transparent;transition:all .15s;white-space:nowrap;}
-.topbar-tab:hover{color:rgba(44,24,16,0.85);}
-.topbar-tab.active{color:#fff;border-bottom-color:var(--brown);}
+.topbar-tab{height:76px;padding:0 18px;border:none;background:none;font-size:15px;font-weight:600;color:rgba(255,255,255,0.6);cursor:pointer;border-bottom:2px solid transparent;}
+.topbar-tab:hover{color:rgba(255,255,255,0.9);}
+.topbar-tab.active{color:#fff;border:none;background:var(--orange);border-radius:7px;margin:auto 3px;height:36px;padding:0 16px;font-weight:700;}
 .topbar-right{display:flex;align-items:center;gap:10px;margin-left:auto;}
 .topbar-user-name{font-size:13px;color:rgba(255,255,255,.6);font-weight:500;}
 .topbar-avatar{width:32px;height:32px;border-radius:50%;background:var(--orange);color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;}
@@ -151,7 +135,7 @@ body{
 .alerta-row:last-child{border-bottom:none;}
 .alerta-ind{width:4px;height:38px;border-radius:2px;flex-shrink:0;}
 .alerta-ind.red{background:var(--red);}.alerta-ind.ora{background:var(--orange);}.alerta-ind.blue{background:var(--blue);}
-.alerta-body{flex:1;min-width:0;}
+.alerta-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-size:15px;line-height:1.55;color:#1C1C1C;background:#F2F2F2;margin:0;padding:0;min-height:100vh;display:flex;flex-direction:column;}
 .alerta-txt{font-size:14px;font-weight:600;color:var(--brown);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .alerta-sub{font-size:12px;color:var(--muted);margin-top:2px;}
 .alerta-badge{font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;white-space:nowrap;}
@@ -196,9 +180,9 @@ body{
 .fw7{font-weight:700;}
 
 /* ── FORMULARIOS ── */
-.fg{margin-bottom:14px;}
-.fl{display:block;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;}
-.fi,.fs{width:100%;border:1px solid var(--border);border-radius:var(--r-sm);padding:9px 12px;font-size:14px;color:var(--brown);outline:none;background:var(--bg);font-family:inherit;}
+.fg{margin-bottom:18px;}
+.fl{display:block;font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;}
+.fi,.fs{width:100%;border:1px solid var(--border);border-radius:var(--r-sm);padding:12px 14px;font-size:16px;color:var(--brown);outline:none;background:var(--bg);font-family:inherit;}
 .fi:focus,.fs:focus{border-color:var(--orange);}
 .fg2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 
@@ -223,7 +207,7 @@ body{
 /* ── MODAL ── */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(74,46,27,.35);backdrop-filter:blur(3px);z-index:500;align-items:center;justify-content:center;padding:24px;}
 .modal-overlay.open{display:flex;}
-.modal-box{background:var(--surface);border-radius:var(--r);padding:24px 32px;width:100%;max-width:960px;max-height:95vh;overflow-y:auto;box-shadow:var(--shadow-md);}
+.modal-box{background:var(--surface);border-radius:var(--r);padding:44px 52px;width:100%;max-width:900px;max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-md);}
 .modal-title{font-size:17px;font-weight:800;color:var(--brown);margin-bottom:20px;}
 .modal-actions{display:flex;gap:8px;margin-top:20px;justify-content:flex-end;}
 
@@ -290,22 +274,9 @@ body{
 </style>
 </head>
 <body>
-<div id="login-overlay">
-  <div class="login-topname">GESTRPNOOK</div>
-  <div class="login-form-side">
-    <div class="login-wrap">
-      <div class="login-logo">Iniciar sesión</div>
-      <div class="login-sub">Introduce tus credenciales para acceder</div>
-      <div class="login-field"><label class="login-label">Usuario</label><input id="login-user" class="login-input" type="text" placeholder="usuario" autocomplete="username"/></div>
-      <div class="login-field"><label class="login-label">Contraseña</label><input id="login-pass" class="login-input" type="password" placeholder="••••••••" autocomplete="current-password"/></div>
-      <button class="login-btn" onclick="hacerLogin()">Iniciar sesión &nbsp;→</button>
-      <div id="login-error" class="login-error"></div>
-    </div>
-  </div>
-  <div class="login-footcopy">© 2026 RPNOOK S.L. Todos los derechos reservados.</div>
-</div>
+<div id="login-overlay" style="position:fixed;inset:0;background:#ffffff;z-index:999;display:flex;align-items:center;justify-content:center;"><div style="position:absolute;top:24px;left:28px;font-size:22px;font-weight:900;color:#1C1C1C;letter-spacing:.04em;">GESTRPNOOK</div><div style="width:100%;max-width:400px;padding:0 24px;"><div style="font-size:28px;font-weight:700;color:#1C1C1C;margin-bottom:8px;">Iniciar sesión</div><div style="font-size:13px;color:#6B6560;margin-bottom:32px;">Introduce tus credenciales para acceder</div><div style="margin-bottom:20px;"><label style="display:block;font-size:12px;font-weight:700;color:#6B6560;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;">Usuario</label><input id="login-user" type="text" placeholder="usuario" autocomplete="username" style="width:100%;box-sizing:border-box;border:none;border-bottom:1px solid #C4BFB5;background:#fff;padding:10px 0;font-size:15px;font-family:inherit;color:#1C1C1C;outline:none;"/></div><div style="margin-bottom:28px;"><label style="display:block;font-size:12px;font-weight:700;color:#6B6560;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;">Contraseña</label><input id="login-pass" type="password" placeholder="••••••••" autocomplete="current-password" style="width:100%;box-sizing:border-box;border:none;border-bottom:1px solid #C4BFB5;background:#fff;padding:10px 0;font-size:15px;font-family:inherit;color:#1C1C1C;outline:none;" onkeydown="if(event.key==='Enter')hacerLogin()"/></div><button onclick="hacerLogin()" style="width:100%;padding:14px;border:none;border-radius:6px;background:#C4714A;color:#fff;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;">Iniciar sesión →</button><div id="login-error" style="color:#9B2226;font-size:13px;margin-top:12px;min-height:18px;"></div></div></div>
 
-<div id="topbar">
+<div id="topbar" style="display:none">
   <div class="topbar-logo">GESTRPNOOK</div>
   <nav class="topbar-nav">
     <button class="topbar-tab active" onclick="irA('panel',this)">Panel</button>
@@ -314,8 +285,8 @@ body{
     
     
     <button class="topbar-tab" onclick="irA('proveedores',this)">Proveedores</button>
-    <button class="topbar-tab" onclick="irA('trabajadores',this)">Trabajadores</button>
     <button class="topbar-tab" onclick="irA('contrasenas',this)" id="tab-contrasenas" style="display:none">Contraseñas</button>
+    <button class="topbar-tab" onclick="irA('inversores',this)" id="tab-inversores" style="display:none">Inversores</button>
   </nav>
   <div class="topbar-right">
     <span title="Versión del build" style="font-size:11px;font-weight:700;letter-spacing:.04em;color:rgba(255,255,255,.55);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:3px 10px;">BUILD 22-AGO · R2</span>
@@ -327,7 +298,7 @@ body{
 </div>
 <div id="sync-bar"></div>
 
-<div id="main">
+<div id="main" style="display:none">
 
 <div id="page-panel" class="page active">
   <div class="page-header">
@@ -386,10 +357,10 @@ body{
       <div style="font-size:13px;color:var(--muted2);">Ingresos menos costes</div>
     </div>
   </div>
-
-  <div class="mb16" style="display:grid;grid-template-columns:7fr 3fr;gap:16px;align-items:stretch;">
+  <!-- Fila: Evolución mensual + Flujo de caja -->
+  <div class="mb16" style="display:grid;grid-template-columns:7fr 3fr;gap:16px;align-items:stretch;min-height:400px;">
     <div class="card">
-      <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px;flex-wrap:wrap;"><div class="card-title" style="margin-bottom:0;">Evolución mensual</div><select onchange="setGraficoMes(this.value)" style="border:1.5px solid var(--border);border-radius:var(--r-sm);padding:8px 12px;font-size:14px;font-family:inherit;color:var(--brown);outline:none;background:var(--surface);cursor:pointer;"><option value="anio" selected>Todo el año</option><option value="1">Enero</option><option value="2">Febrero</option><option value="3">Marzo</option><option value="4">Abril</option><option value="5">Mayo</option><option value="6">Junio</option><option value="7">Julio</option><option value="8">Agosto</option><option value="9">Septiembre</option><option value="10">Octubre</option><option value="11">Noviembre</option><option value="12">Diciembre</option></select> <select onchange="graficoAnioActual=parseInt(this.value);renderGraficoEvolucion()" style="border:1.5px solid var(--border);border-radius:var(--r-sm);padding:8px 12px;font-size:14px;font-family:inherit;color:var(--brown);background:var(--surface);cursor:pointer;"><option value="2024">2024</option><option value="2025">2025</option><option value="2026" selected>2026</option><option value="2027">2027</option></select></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px;flex-wrap:wrap;"><div class="card-title" style="margin-bottom:0;">Evolución mensual</div><div style="display:flex;gap:8px;"><select onchange="graficoAnioActual=parseInt(this.value);renderGraficoEvolucion()" style="border:1.5px solid var(--border);border-radius:var(--r-sm);padding:8px 12px;font-size:14px;font-family:inherit;color:var(--brown);outline:none;background:var(--surface);cursor:pointer;"><option value="2024">2024</option><option value="2025">2025</option><option value="2026" selected>2026</option><option value="2027">2027</option></select><select onchange="setGraficoMes(this.value)" style="border:1.5px solid var(--border);border-radius:var(--r-sm);padding:8px 12px;font-size:14px;font-family:inherit;color:var(--brown);outline:none;background:var(--surface);cursor:pointer;"><option value="anio" selected>Todo el año</option><option value="1">Enero</option><option value="2">Febrero</option><option value="3">Marzo</option><option value="4">Abril</option><option value="5">Mayo</option><option value="6">Junio</option><option value="7">Julio</option><option value="8">Agosto</option><option value="9">Septiembre</option><option value="10">Octubre</option><option value="11">Noviembre</option><option value="12">Diciembre</option></select></div></div>
       <div id="evolucion-chart" style="height:340px;position:relative;">
         <canvas id="evolucion-canvas" style="width:100%;height:100%;"></canvas>
         <div id="evolucion-empty" style="display:none;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
@@ -398,6 +369,7 @@ body{
         </div>
       </div>
     </div>
+    <div style="display:flex;flex-direction:column;gap:16px;">
     <div class="card">
       <div class="card-title">Flujo de caja</div>
       <!-- Neto -->
@@ -437,19 +409,48 @@ body{
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="g2 mb16">
-    <div class="card"><div class="card-title">Alertas y Recordatorios</div><div id="alertas-list"><div class="no-alertas">Todo en orden</div></div></div>
     <div class="card">
       <div class="card-title">Estado de Facturas <span class="card-count" id="fact-count-panel"></span></div>
       <div class="dr"><span class="dr-label">Pendiente de Cobro</span><span class="dr-val pos" id="est-cobrar">0</span></div>
       <div class="dr"><span class="dr-label">Pendiente de Pago</span><span class="dr-val neg" id="est-pagar">0</span></div>
       <div class="dr"><span class="dr-label">Neto pendiente</span><span class="dr-val" id="est-neto">0</span></div>
     </div>
+    </div>
   </div>
-
+  <!-- Alertas -->
+  <div id="alertas-list" style="display:none;"></div>
+  <!-- Fila Equipo hoy (30%) + Calendario vacaciones (70%) -->
+  <div style="display:flex;gap:16px;align-items:stretch;margin-bottom:16px;">
+    <div class="card" id="card-trabajadores" style="flex:3;min-width:0;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+        <div class="card-title" style="margin-bottom:0;">Equipo</div>
+        <button class="btn btn-d" style="font-size:13px;padding:6px 14px;" onclick="abrirModalTrabajador()">+ Crear</button>
+      </div>
+      <div id="trabajadores-list"></div>
+    </div>
+  <!-- Calendario vacaciones — 70% de la fila -->
+  <div class="card" id="card-vacaciones-cal" style="flex:7;min-width:0;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:10px;">
+      <div class="card-title" style="margin-bottom:0;">Vacaciones y Días Libres</div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <button onclick="vacCalCambiarMes(-1)" style="border:1.5px solid var(--border);background:var(--surface);border-radius:var(--r-sm);padding:5px 10px;cursor:pointer;font-size:16px;color:var(--brown);">‹</button>
+        <span id="vac-cal-titulo" style="font-size:14px;font-weight:700;color:var(--brown);min-width:130px;text-align:center;">—</span>
+        <button onclick="vacCalCambiarMes(1)" style="border:1.5px solid var(--border);background:var(--surface);border-radius:var(--r-sm);padding:5px 10px;cursor:pointer;font-size:16px;color:var(--brown);">›</button>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+        <div style="display:flex;gap:14px;align-items:center;font-size:12px;color:var(--muted);flex-wrap:wrap;">
+          <span style="display:flex;align-items:center;gap:5px;"><span style="width:12px;height:12px;border-radius:3px;background:#C4714A;display:inline-block;"></span>Vacaciones</span>
+          <span style="display:flex;align-items:center;gap:5px;"><span style="width:12px;height:12px;border-radius:3px;background:#2D6A4F;display:inline-block;"></span>Día libre</span>
+          <span style="display:flex;align-items:center;gap:5px;"><span style="width:12px;height:12px;border-radius:3px;background:#7C3AED;display:inline-block;"></span>Baja / Formación</span>
+        </div>
+        <button onclick="abrirModalAusencia()" style="border:none;background:var(--orange);color:#fff;border-radius:var(--r-sm);padding:7px 14px;cursor:pointer;font-size:13px;font-weight:700;">+ Añadir ausencia</button>
+      </div>
+    </div>
+    <div id="vac-cal-grid"></div>
+  </div>
+  </div><!-- fin flex row equipo+calendario -->
 </div>
+
 <div id="page-proyectos" class="page">
 
   <!-- LISTA DE PROYECTOS -->
@@ -717,7 +718,6 @@ body{
       <div class="fg"><label class="fl">Fecha inicio</label><input id="proy-inicio" type="date" class="fi"/></div>
       <div class="fg"><label class="fl">Fecha fin prevista</label><input id="proy-fin" type="date" class="fi"/></div>
     </div>
-    <label style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--orange);font-weight:600;cursor:pointer;"><input type="checkbox" id="nf-pagado" style="accent-color:var(--orange)"/> Marcar como cobrada / pagada</label>
     <div class="modal-actions">
       <button class="btn btn-o" onclick="cerrarModal('modal-nuevo-proy')">Cancelar</button>
       <button class="btn btn-p" onclick="guardarNuevoProyecto()">Guardar proyecto</button>
@@ -738,7 +738,6 @@ body{
       <div class="fg"><label class="fl">FEE ATR (%)</label><select id="pres-fee" class="fs"><option value="5.5">5,5%</option><option value="8" selected>8%</option><option value="12">12%</option></select></div>
       <div class="fg"><label class="fl">Fecha</label><input id="pres-fecha" type="date" class="fi"/></div>
     </div>
-    <label style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--orange);font-weight:600;cursor:pointer;"><input type="checkbox" id="nf-pagado" style="accent-color:var(--orange)"/> Marcar como cobrada / pagada</label>
     <div class="modal-actions">
       <button class="btn btn-o" onclick="cerrarModal('modal-presupuesto-proy')">Cancelar</button>
       <button class="btn btn-p" onclick="guardarPresupuestoProy()">Guardar presupuesto</button>
@@ -760,7 +759,6 @@ body{
       <div class="fg"><label class="fl">IVA (%)</label><select id="fp-iva" class="fs"><option value="21" selected>21%</option><option value="10">10%</option><option value="0">0%</option></select></div>
     </div>
     <div class="fg"><label class="fl">Estado</label><select id="fp-estado" class="fs"><option value="pendiente">Pendiente</option><option value="enviada">Enviada</option><option value="cobrada">Cobrada</option></select></div>
-    <label style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--orange);font-weight:600;cursor:pointer;"><input type="checkbox" id="nf-pagado" style="accent-color:var(--orange)"/> Marcar como cobrada / pagada</label>
     <div class="modal-actions">
       <button class="btn btn-o" onclick="cerrarModal('modal-factura-proy')">Cancelar</button>
       <button class="btn btn-p" onclick="guardarFacturaProy()">Guardar factura</button>
@@ -781,7 +779,6 @@ body{
       <div class="fg"><label class="fl">Tipo</label><select id="gp-tipo" class="fs"><option value="material">Material</option><option value="mano_obra">Mano de obra</option><option value="subcontrata">Subcontrata</option><option value="transporte">Transporte</option><option value="otro">Otro</option></select></div>
       <div class="fg"><label class="fl">Importe (€)</label><input id="gp-importe" type="number" class="fi" placeholder="0.00" step="0.01"/></div>
     </div>
-    <label style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--orange);font-weight:600;cursor:pointer;"><input type="checkbox" id="nf-pagado" style="accent-color:var(--orange)"/> Marcar como cobrada / pagada</label>
     <div class="modal-actions">
       <button class="btn btn-o" onclick="cerrarModal('modal-gasto-proy')">Cancelar</button>
       <button class="btn btn-p" onclick="guardarGastoProy()">Guardar gasto</button>
@@ -799,7 +796,6 @@ body{
       <div class="fg"><label class="fl">Estado</label><select id="hito-estado" class="fs"><option value="pendiente">Pendiente</option><option value="en_curso">En curso</option><option value="completado">Completado</option></select></div>
     </div>
     <div class="fg"><label class="fl">Responsable</label><select id="hito-responsable" class="fs"><option value="">Sin asignar</option><option value="david">David</option><option value="martin">Martín</option><option value="angel">Ángel</option></select></div>
-    <label style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--orange);font-weight:600;cursor:pointer;"><input type="checkbox" id="nf-pagado" style="accent-color:var(--orange)"/> Marcar como cobrada / pagada</label>
     <div class="modal-actions">
       <button class="btn btn-o" onclick="cerrarModal('modal-hito')">Cancelar</button>
       <button class="btn btn-p" onclick="guardarHito()">Guardar hito</button>
@@ -865,96 +861,186 @@ body{
 
 <div id="page-facturas" class="page">
 
-  <!-- HEADER -->
-  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
-    <div>
-      <div style="font-size:22px;font-weight:800;color:var(--brown);text-transform:uppercase;letter-spacing:.02em;">Facturas</div>
-      <div style="font-size:14px;color:var(--muted);margin-top:2px;" id="fact-header-count">0 facturas</div>
+  <!-- HEADER igual que Constrack -->
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap;gap:12px;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <div>
+        <div style="font-size:22px;font-weight:800;color:var(--brown);text-transform:uppercase;letter-spacing:.02em;">Facturas</div>
+        <div style="font-size:14px;color:var(--muted);margin-top:2px;" id="fact-header-count">0 facturas</div>
+      </div>
     </div>
-    <div style="display:flex;gap:8px;">
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
       <button class="btn btn-o" style="font-size:14px;padding:8px 14px;display:flex;align-items:center;gap:7px;">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/></svg>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/></svg>
         Exportar
       </button>
-      <button class="btn btn-d" onclick="abrirModalNuevaFactura()" style="font-size:14px;padding:8px 14px;">+ Registrar factura</button>
+      <button class="btn btn-d" onclick="abrirModalNuevaFactura()" style="font-size:14px;padding:8px 14px;display:flex;align-items:center;gap:7px;">
+        + Registrar factura
+      </button>
     </div>
   </div>
 
-  <!-- 4 KPIs -->
-  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px;">
-    <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r);padding:18px 20px;box-shadow:var(--shadow);">
-      <div style="display:flex;align-items:center;gap:7px;margin-bottom:8px;">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1A7A3F" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-        <span style="font-size:13px;font-weight:600;color:var(--muted);">Total Emitidas</span>
-      </div>
-      <div style="font-size:22px;font-weight:900;color:var(--green);margin-bottom:3px;" id="fact-e-total">0,00 €</div>
-      <div style="font-size:13px;color:var(--muted2);" id="fact-e-count"></div>    </div>
-    <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r);padding:18px 20px;box-shadow:var(--shadow);">
-      <div style="display:flex;align-items:center;gap:7px;margin-bottom:8px;">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C0392B" stroke-width="2"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg>
-        <span style="font-size:13px;font-weight:600;color:var(--muted);">Total Recibidas</span>
-      </div>
-      <div style="font-size:22px;font-weight:900;color:var(--red);margin-bottom:3px;" id="fact-r-total">0,00 €</div>
-      <div style="font-size:13px;color:var(--muted2);" id="fact-r-count"></div>    </div>
-    <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r);padding:18px 20px;box-shadow:var(--shadow);">
-      <div style="display:flex;align-items:center;gap:7px;margin-bottom:8px;">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <span style="font-size:13px;font-weight:600;color:var(--muted);">Pendiente de Cobro</span>
-      </div>
-      <div style="font-size:22px;font-weight:900;color:var(--orange);margin-bottom:3px;" id="fact-e-pend">0,00 €</div>
-    </div>
-    <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r);padding:18px 20px;box-shadow:var(--shadow);">
-      <div style="display:flex;align-items:center;gap:7px;margin-bottom:8px;">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-        <span style="font-size:13px;font-weight:600;color:var(--muted);">EBITDA</span>
-      </div>
-      <div style="font-size:22px;font-weight:900;color:var(--blue);margin-bottom:3px;" id="fact-ebitda">0,00 €</div>
-      <div style="font-size:13px;color:var(--muted2);" id="fact-ebitda-pct">—</div>
-    </div>
+  <!-- PESTAÑAS con iconos SVG inline — igual que Constrack -->
+  <div class="tabs" style="margin-bottom:20px;">
+    <button class="tab active" onclick="switchFactTab('recibidas',this)" style="display:flex;align-items:center;gap:7px;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg>
+      Recibidas
+      <span id="fact-tab-rec-count" style="font-size:14px;background:var(--border);color:var(--muted);padding:1px 7px;border-radius:20px;">0</span>
+    </button>
+    <button class="tab" onclick="switchFactTab('emitidas',this)" style="display:flex;align-items:center;gap:7px;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+      Emitidas
+      <span id="fact-tab-emi-count" style="font-size:14px;background:var(--border);color:var(--muted);padding:1px 7px;border-radius:20px;">0</span>
+    </button>
+    <button class="tab" onclick="switchFactTab('vencimientos',this)" style="display:flex;align-items:center;gap:7px;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Vencimientos
+    </button>
   </div>
 
-  <!-- FILTROS -->
-  <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap;">
-    <div style="position:relative;flex:1;min-width:320px;">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--muted2)" stroke-width="2" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);pointer-events:none;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input id="fact-search" oninput="renderFacturas()" placeholder="Buscar por nº factura, proveedor, obra, cliente..." style="width:100%;box-sizing:border-box;padding:10px 14px 10px 38px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:14px;font-family:inherit;color:var(--brown);background:var(--surface);outline:none;"/>
+  <!-- RECIBIDAS -->
+  <div id="fact-recibidas">
+    <div class="g3 mb16">
+      <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r);padding:20px 22px;box-shadow:var(--shadow);">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C0392B" stroke-width="2"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg>
+          <span style="font-size:14px;font-weight:600;color:var(--muted);">Total Recibidas</span>
+        </div>
+        <div style="font-size:22px;font-weight:900;color:var(--red);margin-bottom:4px;" id="fact-r-total">0,00 &#8364;</div>
+        <div style="font-size:14px;color:var(--muted2);" id="fact-r-count">0 Recibida</div>
+      </div>
+      <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r);padding:20px 22px;box-shadow:var(--shadow);">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          <span style="font-size:14px;font-weight:600;color:var(--muted);">Total Pagado</span>
+        </div>
+        <div style="font-size:22px;font-weight:900;color:var(--brown);margin-bottom:4px;" id="fact-r-pagado">0,00 &#8364;</div>
+      </div>
+      <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r);padding:20px 22px;box-shadow:var(--shadow);">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span style="font-size:14px;font-weight:600;color:var(--muted);">Pendiente de Pago</span>
+        </div>
+        <div style="font-size:22px;font-weight:900;color:var(--orange);margin-bottom:4px;" id="fact-r-pend">0,00 &#8364;</div>
+      </div>
     </div>
-    <select id="fact-anio" onchange="renderFacturas()" style="border:1.5px solid var(--border);border-radius:var(--r-sm);padding:10px 14px;font-size:14px;font-family:inherit;color:var(--brown);background:var(--surface);outline:none;cursor:pointer;">
-      <option value="all">Todos los años</option>
-      <option value="2023">2023</option><option value="2024">2024</option>
-      <option value="2025">2025</option><option value="2026" selected>2026</option><option value="2027">2027</option>
-    </select>
-    <select id="fact-mes" onchange="renderFacturas()" style="border:1.5px solid var(--border);border-radius:var(--r-sm);padding:10px 14px;font-size:14px;font-family:inherit;color:var(--brown);background:var(--surface);outline:none;cursor:pointer;">
-      <option value="all">Todos los meses</option>
-      <option value="01">Enero</option><option value="02">Febrero</option><option value="03">Marzo</option>
-      <option value="04">Abril</option><option value="05">Mayo</option><option value="06">Junio</option>
-      <option value="07">Julio</option><option value="08">Agosto</option><option value="09">Septiembre</option>
-      <option value="10">Octubre</option><option value="11">Noviembre</option><option value="12">Diciembre</option>
-    </select>
-  </div>
-
-  <!-- TABLA -->
-  <table class="tbl">
-        <thead>
-          <tr>
-            <th>Estado</th>
-            <th>Tipo</th>
-            <th>F. Cobro/Pago</th>
-            <th>F. Factura</th>
-            <th>Proveedor/Cliente</th>
-            <th>Nº Factura</th>
-            <th>Obra</th>
-            <th style="text-align:right;">Importe</th>
-          </tr>
-        </thead>
+    <!-- Filtros año + buscador -->
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px;flex-wrap:wrap;">
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;"><select id="fact-anio" onchange="renderFacturas()" style="border:1.5px solid var(--border);border-radius:var(--r-sm);padding:8px 12px;font-size:14px;font-family:inherit;color:var(--brown);outline:none;background:var(--surface);cursor:pointer;"><option value="all">Todos los años</option><option value="2028">2028</option><option value="2027">2027</option><option value="2026">2026</option><option value="2025">2025</option><option value="2024">2024</option><option value="2023">2023</option></select><select id="fact-mes" onchange="renderFacturas()" style="border:1.5px solid var(--border);border-radius:var(--r-sm);padding:8px 12px;font-size:14px;font-family:inherit;color:var(--brown);outline:none;background:var(--surface);cursor:pointer;"><option value="all">Todos los meses</option><option value="01">Enero</option><option value="02">Febrero</option><option value="03">Marzo</option><option value="04">Abril</option><option value="05">Mayo</option><option value="06">Junio</option><option value="07">Julio</option><option value="08">Agosto</option><option value="09">Septiembre</option><option value="10">Octubre</option><option value="11">Noviembre</option><option value="12">Diciembre</option></select></div>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <div style="position:relative;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--muted2)" stroke-width="2" style="position:absolute;left:11px;top:50%;transform:translateY(-50%);"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="fact-search" class="sri" placeholder="Buscar por n&#186; factura, proveedor..." oninput="renderFacturas()" style="padding-left:34px;min-width:260px;font-size:14px;"/>
+        </div>
+        <button class="btn btn-o" style="display:flex;align-items:center;gap:6px;font-size:14px;padding:8px 14px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M3 12h13M3 18h7"/></svg>
+          Papelera
+        </button>
+      </div>
+    </div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Estado</th><th>F. Cobro</th><th>F. Factura</th><th>Proveedor / Cliente</th><th>N&#186; Factura</th><th>Obra</th><th>Tipo</th><th class="tr">Importe</th></tr></thead>
         <tbody id="fact-tbody"></tbody>
         <tfoot id="fact-tfoot"></tfoot>
-      </tabl
+      </table>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 16px;font-size:14px;color:var(--muted);border-top:1px solid var(--border);">
+      <span id="fact-count-tbl">Mostrando 0-0 de 0</span>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span>Filas por p&#225;gina</span>
+        <select class="si" style="padding:5px 10px;font-size:14px;"><option>25</option><option>50</option><option>100</option></select>
+        <button class="btn-g" style="padding:5px 8px;">&#8249;</button>
+        <span style="font-size:14px;font-weight:700;background:var(--border);padding:4px 10px;border-radius:6px;">1</span>
+        <button class="btn-g" style="padding:5px 8px;">&#8250;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMITIDAS -->
+  <div id="fact-emitidas" style="display:none">
+    <div class="g3 mb16">
+      <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r);padding:20px 22px;box-shadow:var(--shadow);">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A7A3F" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          <span style="font-size:14px;font-weight:600;color:var(--muted);">Total Emitidas</span>
+        </div>
+        <div style="font-size:22px;font-weight:900;color:var(--green);margin-bottom:4px;" id="fact-e-total">0,00 &#8364;</div>
+        <div style="font-size:14px;color:var(--muted2);" id="fact-e-count">0 Emitida</div>
+      </div>
+      <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r);padding:20px 22px;box-shadow:var(--shadow);">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          <span style="font-size:14px;font-weight:600;color:var(--muted);">Total Cobrado</span>
+        </div>
+        <div style="font-size:22px;font-weight:900;color:var(--brown);margin-bottom:4px;" id="fact-e-cobrado">0,00 &#8364;</div>
+      </div>
+      <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r);padding:20px 22px;box-shadow:var(--shadow);">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span style="font-size:14px;font-weight:600;color:var(--muted);">Pendiente de Cobro</span>
+        </div>
+        <div style="font-size:22px;font-weight:900;color:var(--orange);margin-bottom:4px;" id="fact-e-pend">0,00 &#8364;</div>
+      </div>
+    </div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>Estado</th><th>F. Cobro</th><th>F. Factura</th><th>Proveedor / Cliente</th><th>N&#186; Factura</th><th>Obra</th><th>Tipo</th><th class="tr">Importe</th></tr></thead>
+        <tbody id="fact-emi-tbody"></tbody>
+        <tfoot id="fact-emi-tfoot"></tfoot>
+      </table>
+    </div>
+  </div>
+
+  <!-- VENCIMIENTOS — igual que Constrack -->
+  <div id="fact-vencimientos" style="display:none">
+    <!-- KPIs vencimientos: 3 tarjetas -->
+    <div class="g3 mb16">
+      <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r);padding:20px 22px;box-shadow:var(--shadow);">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A7A3F" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          <span style="font-size:14px;font-weight:600;color:var(--muted);">Pendiente de cobrar</span>
+        </div>
+        <div style="font-size:22px;font-weight:900;color:var(--green);" id="venc-pcobrar">0,00 &#8364;</div>
+      </div>
+      <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r);padding:20px 22px;box-shadow:var(--shadow);">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C0392B" stroke-width="2"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg>
+          <span style="font-size:14px;font-weight:600;color:var(--muted);">Pendiente de pagar</span>
+        </div>
+        <div style="font-size:22px;font-weight:900;color:var(--red);" id="venc-ppagar">0,00 &#8364;</div>
+      </div>
+      <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r);padding:20px 22px;box-shadow:var(--shadow);">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span style="font-size:14px;font-weight:600;color:var(--muted);">Importe vencido</span>
+        </div>
+        <div style="font-size:22px;font-weight:900;color:var(--orange);" id="venc-vencido">0,00 &#8364;</div>
+      </div>
+    </div>
+    <!-- Lista de vencimientos -->
+    <div class="card">
+      <div id="fact-venc-lista"></div>
+    </div>
+  </div>
+
+  <!-- CERTIFICACIONES / IVA -->
+  <div id="fact-iva" style="display:none">
+    <div class="tabs" style="margin-bottom:16px;">
+      <button class="tab active" onclick="switchIVATrim(1,this)">T1</button>
+      <button class="tab" onclick="switchIVATrim(2,this)">T2</button>
+      <button class="tab" onclick="switchIVATrim(3,this)">T3</button>
+      <button class="tab" onclick="switchIVATrim(4,this)">T4</button>
+    </div>
+    <div class="g3">
+      <div class="kpi"><div class="kpi-label">IVA Repercutido</div><div class="kpi-value" id="iva-rep">--</div><div class="kpi-sub">Ventas</div></div>
+      <div class="kpi"><div class="kpi-label">IVA Soportado</div><div class="kpi-value" id="iva-sop">--</div><div class="kpi-sub">Compras</div></div>
+      <div class="kpi"><div class="kpi-label">Resultado</div><div class="kpi-value" id="iva-res">--</div><div class="kpi-sub" id="iva-res-sub">Modelo 303</div></div>
+    </div>
+  </div>
 
 </div>
 
-
-</div>
 <div id="page-calendario" class="page">
   <div class="page-header">
     <div><div class="page-title">Calendario</div><div class="page-subtitle">Eventos, ausencias y festivos del equipo</div></div>
@@ -1022,6 +1108,24 @@ body{
   <div id="pass-grid" class="pass-grid"></div>
 </div>
 
+<!-- ===================== INVERSORES ===================== -->
+<div id="page-inversores" class="page">
+  <div class="page-header">
+    <div>
+      <div class="page-title">Inversores</div>
+      <div class="page-subtitle" id="inv-header-count">Capital externo y aportaciones de terceros</div>
+    </div>
+    <div class="page-actions">
+      <input class="sri" id="inv-search" placeholder="Buscar inversor..." oninput="renderInversores()"/>
+      <button class="btn btn-p" onclick="abrirModalInversor()">+ Nuevo inversor</button>
+    </div>
+  </div>
+  <!-- KPIs resumen -->
+  <div class="g4 mb20" id="inv-kpis"></div>
+  <!-- Grid de tarjetas -->
+  <div class="pass-grid" id="inv-grid"></div>
+</div>
+
 <!-- ===================== PROVEEDORES ===================== -->
 <div id="page-proveedores" class="page">
   <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap;gap:12px;">
@@ -1045,32 +1149,9 @@ body{
     <span class="chip" onclick="setProvOrden('pagado',this)">Pagado</span>
     <span class="chip" onclick="setProvOrden('pendiente',this)">Pendiente de Pago</span>
   </div>
-  <div id="prov-list" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:16px;"></div>
+  <div id="prov-list"></div>
 </div>
 
-<!-- ===================== TRABAJADORES ===================== -->
-<div id="page-trabajadores" class="page">
-  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap;gap:12px;">
-    <div style="display:flex;align-items:center;gap:14px;">
-      <div>
-        <div style="font-size:22px;font-weight:800;color:var(--brown);text-transform:uppercase;letter-spacing:.02em;">Trabajadores</div>
-        <div style="font-size:14px;color:var(--muted);margin-top:2px;" id="trab-header-count">0 trabajadores</div>
-      </div>
-    </div>
-    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
-      <input id="trab-search" oninput="renderTrabajadores()" placeholder="Buscar..." style="border:1.5px solid var(--border);border-radius:var(--r-sm);padding:8px 12px;font-size:14px;font-family:inherit;outline:none;color:var(--brown);width:180px;"/>
-      
-      <button class="btn btn-d" style="font-size:14px;padding:8px 16px;" onclick="abrirModalTrabajador()">+ Crear</button>
-    </div>
-  </div>
-  <div class="tabs" style="margin-bottom:18px;">
-    <button class="tab active" onclick="setTrabTab('listado',this)">Listado</button>
-    <button class="tab" onclick="setTrabTab('dia',this)">Por día</button>
-    <button class="tab" onclick="setTrabTab('trab',this)">Por trabajador</button>
-    <button class="tab" onclick="setTrabTab('resumen',this)">Resumen mensual</button>
-  </div>
-  <div id="trab-list"></div>
-</div>
 
 </div>
 
@@ -1086,10 +1167,43 @@ body{
       <div class="fg"><label class="fl">Hora entrada</label><input id="mf-entrada" type="time" class="fi"/></div>
       <div class="fg"><label class="fl">Hora salida</label><input id="mf-salida" type="time" class="fi"/></div>
     </div>
-    <label style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--orange);font-weight:600;cursor:pointer;"><input type="checkbox" id="nf-pagado" style="accent-color:var(--orange)"/> Marcar como cobrada / pagada</label>
     <div class="modal-actions">
       <button class="btn btn-o" onclick="cerrarModal('modal-fich')">Cancelar</button>
       <button class="btn btn-p" onclick="guardarFichajeManual()">Guardar fichaje</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal inversor -->
+<div class="modal-overlay" id="modal-inversor">
+  <div class="modal-box">
+    <div class="modal-title" id="modal-inv-titulo">Nuevo inversor</div>
+    <input type="hidden" id="inv-edit-idx" value=""/>
+    <div class="fg2">
+      <div class="fg"><label class="fl">Nombre del inversor *</label><input id="inv-nombre" type="text" class="fi" placeholder="Nombre o razón social"/></div>
+      <div class="fg"><label class="fl">Contacto (email / tel.)</label><input id="inv-contacto" type="text" class="fi" placeholder="email@ejemplo.com"/></div>
+    </div>
+    <div class="fg2">
+      <div class="fg"><label class="fl">Importe aportado (€) *</label><input id="inv-importe" type="number" class="fi" step="0.01" placeholder="0.00"/></div>
+      <div class="fg"><label class="fl">Fecha de aportación *</label><input id="inv-fecha" type="date" class="fi"/></div>
+    </div>
+    <div class="fg2">
+      <div class="fg"><label class="fl">Modalidad</label><select id="inv-modalidad" class="fs"><option value="prestamo">Préstamo (retornable)</option><option value="participacion">Participación en beneficios</option><option value="donacion">Donación / aportación a fondo perdido</option><option value="otro">Otro</option></select></div>
+      <div class="fg"><label class="fl">Estado</label><select id="inv-estado" class="fs"><option value="activo">Activo</option><option value="devuelto">Devuelto</option><option value="en_plazo">En plazo</option><option value="vencido">Vencido</option></select></div>
+    </div>
+    <div class="fg2">
+      <div class="fg"><label class="fl">Cuota mensual (€)</label><input id="inv-cuota" type="number" class="fi" step="0.01" placeholder="0.00 — si aplica"/></div>
+      <div class="fg"><label class="fl">Nº de cuotas</label><input id="inv-ncuotas" type="number" class="fi" step="1" placeholder="Ej: 12"/></div>
+    </div>
+    <div class="fg2">
+      <div class="fg"><label class="fl">Interés anual (%)</label><input id="inv-interes" type="number" class="fi" step="0.01" placeholder="0.00"/></div>
+      <div class="fg"><label class="fl">Fecha fin / vencimiento</label><input id="inv-vencimiento" type="date" class="fi"/></div>
+    </div>
+    <div class="fg"><label class="fl">Garantías / condiciones</label><input id="inv-garantias" type="text" class="fi" placeholder="Ej: Aval personal, participación en obra X..."/></div>
+    <div class="fg"><label class="fl">Notas</label><textarea id="inv-notas" class="fi" style="resize:vertical;min-height:64px;" placeholder="Observaciones adicionales..."></textarea></div>
+    <div class="modal-actions">
+      <button class="btn btn-o" onclick="cerrarModal('modal-inversor')">Cancelar</button>
+      <button class="btn btn-p" onclick="guardarInversor()">Guardar</button>
     </div>
   </div>
 </div>
@@ -1103,10 +1217,40 @@ body{
     <div class="fg"><label class="fl">Usuario</label><input id="pass-usuario" type="text" class="fi" placeholder="usuario@email.com"/></div>
     <div class="fg"><label class="fl">Contraseña</label><div style="display:flex;gap:8px;"><input id="pass-password" type="password" class="fi" placeholder="••••••••"/><button class="btn btn-o" onclick="togglePassModal()" style="padding:9px 12px;">Ver</button></div></div>
     <div class="fg"><label class="fl">Notas</label><textarea id="pass-notas" class="fi" style="resize:vertical;min-height:60px;" placeholder="Notas adicionales..."></textarea></div>
-    <label style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--orange);font-weight:600;cursor:pointer;"><input type="checkbox" id="nf-pagado" style="accent-color:var(--orange)"/> Marcar como cobrada / pagada</label>
     <div class="modal-actions">
       <button class="btn btn-o" onclick="cerrarModal('modal-contrasena')">Cancelar</button>
       <button class="btn btn-p" onclick="guardarContrasena()">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal ausencia vacaciones -->
+<div class="modal-overlay" id="modal-ausencia">
+  <div class="modal-box">
+    <div class="modal-title" id="modal-ausencia-titulo">Añadir ausencia</div>
+    <div class="fg">
+      <label class="fl">Persona(s)</label>
+      <select id="aus-persona" class="fs">
+        <option value="todos">— Todos el equipo —</option>
+      </select>
+    </div>
+    <div class="fg">
+      <label class="fl">Tipo</label>
+      <select id="aus-tipo" class="fs">
+        <option value="vacaciones">Vacaciones</option>
+        <option value="libre">Día libre</option>
+        <option value="baja">Baja / Incapacidad temporal</option>
+        <option value="formacion">Formación</option>
+        <option value="otros">Otros</option>
+      </select>
+    </div>
+    <div class="fg2">
+      <div class="fg"><label class="fl">Fecha inicio *</label><input id="aus-desde" type="date" class="fi"/></div>
+      <div class="fg"><label class="fl">Fecha fin (dejar vacío = día puntual)</label><input id="aus-hasta" type="date" class="fi"/></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-o" onclick="cerrarModal('modal-ausencia')">Cancelar</button>
+      <button class="btn btn-p" onclick="guardarAusencia()">Guardar</button>
     </div>
   </div>
 </div>
@@ -1119,7 +1263,6 @@ body{
     <div class="fg"><label class="fl">Descripción</label><input id="ev-notas" type="text" class="fi" placeholder="Descripción del evento"/></div>
     <div class="fg"><label class="fl">Personas</label><div style="display:flex;gap:8px;flex-wrap:wrap;" id="ev-personas"></div></div>
     <div class="fg"><label class="fl">Obra relacionada</label><input id="ev-obra" type="text" class="fi" placeholder="Ej: P2025-09"/></div>
-    <label style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--orange);font-weight:600;cursor:pointer;"><input type="checkbox" id="nf-pagado" style="accent-color:var(--orange)"/> Marcar como cobrada / pagada</label>
     <div class="modal-actions">
       <button class="btn btn-o" onclick="cerrarModal('modal-evento')">Cancelar</button>
       <button class="btn btn-p" onclick="guardarEvento()">Guardar evento</button>
@@ -1133,7 +1276,6 @@ body{
     <div class="fg"><label class="fl">Nombre del festivo</label><input id="fest-nombre" type="text" class="fi" placeholder="Ej: Festa Major de Vic"/></div>
     <div class="fg"><label class="fl">Fecha</label><input id="fest-fecha" type="date" class="fi"/></div>
     <div class="fg"><label class="fl">Tipo</label><div style="display:flex;gap:10px;"><label style="display:flex;align-items:center;gap:6px;font-size:14px;cursor:pointer;"><input type="radio" name="fest-tipo" value="nacional" checked/> Nacional</label><label style="display:flex;align-items:center;gap:6px;font-size:14px;cursor:pointer;"><input type="radio" name="fest-tipo" value="local"/> Local (Vic)</label></div></div>
-    <label style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--orange);font-weight:600;cursor:pointer;"><input type="checkbox" id="nf-pagado" style="accent-color:var(--orange)"/> Marcar como cobrada / pagada</label>
     <div class="modal-actions">
       <button class="btn btn-o" onclick="cerrarModal('modal-festivo')">Cancelar</button>
       <button class="btn btn-p" onclick="guardarFestivo()">Guardar festivo</button>
@@ -1155,7 +1297,6 @@ body{
       <div class="fg"><label class="fl">Email</label><input id="prov-email" type="text" class="fi" placeholder="correo@proveedor.com"/></div>
     </div>
     <div class="fg"><label class="fl">Notas</label><textarea id="prov-notas" class="fi" style="resize:vertical;min-height:60px;" placeholder="Notas adicionales..."></textarea></div>
-    <label style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--orange);font-weight:600;cursor:pointer;"><input type="checkbox" id="nf-pagado" style="accent-color:var(--orange)"/> Marcar como cobrada / pagada</label>
     <div class="modal-actions">
       <button class="btn btn-o" onclick="cerrarModal('modal-proveedor')">Cancelar</button>
       <button class="btn btn-p" onclick="guardarProveedor()">Guardar</button>
@@ -1169,14 +1310,13 @@ body{
     <div class="fg"><label class="fl">Nombre *</label><input id="trab-nombre" type="text" class="fi" placeholder="Nombre y apellidos"/></div>
     <div class="fg2">
       <div class="fg"><label class="fl">Rol / Puesto</label><input id="trab-rol" type="text" class="fi" placeholder="Ej: Oficial 1ª, Peón, Oficina..."/></div>
-      <div class="fg"><label class="fl">Coste / hora (EUR)</label><input id="trab-coste_hora" type="text" class="fi" placeholder="Ej: 18"/></div>
+      <div class="fg"><label class="fl">Sueldo anual (EUR)</label><input id="trab-coste_hora" type="text" class="fi" placeholder="Ej: 24000"/></div>
     </div>
     <div class="fg2">
       <div class="fg"><label class="fl">Teléfono</label><input id="trab-telefono" type="text" class="fi" placeholder="600 000 000"/></div>
       <div class="fg"><label class="fl">Email</label><input id="trab-email" type="text" class="fi" placeholder="correo@es.aquitureforma.com"/></div>
     </div>
     <div class="fg"><label class="fl">Notas</label><textarea id="trab-notas" class="fi" style="resize:vertical;min-height:60px;" placeholder="Notas adicionales..."></textarea></div>
-    <label style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--orange);font-weight:600;cursor:pointer;"><input type="checkbox" id="nf-pagado" style="accent-color:var(--orange)"/> Marcar como cobrada / pagada</label>
     <div class="modal-actions">
       <button class="btn btn-o" onclick="cerrarModal('modal-trabajador')">Cancelar</button>
       <button class="btn btn-p" onclick="guardarTrabajador()">Guardar</button>
@@ -1185,83 +1325,61 @@ body{
 </div>
 
 <div class="modal-overlay" id="modal-nueva-factura">
-  <div class="modal-box">
-    <div style="font-size:17px;font-weight:800;color:var(--brown);margin-bottom:20px;padding-bottom:14px;border-bottom:1.5px solid var(--border);">Registrar factura</div>
-
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px 20px;align-items:start;">
-
-      <!-- Col 1 -->
-      <div class="fg">
-        <label class="fl">Tipo</label>
-        <select id="nf-tipo" class="fs">
-          <option value="Emitida">Emitida (ingreso)</option>
-          <option value="Recibida">Recibida (gasto)</option>
-          <option value="Nómina">Nómina / pago a trabajador</option>
-        </select>
-      </div>
-      <div class="fg">
-        <label class="fl">Nº Factura</label>
-        <input id="nf-num" class="fi" type="text" placeholder="F-2026-001"/>
-      </div>
-      <div class="fg">
-        <label class="fl">Cliente / Proveedor / Trabajador *</label>
-        <input id="nf-contraparte" class="fi" type="text" placeholder="Nombre" list="nf-contraparte-list" autocomplete="off"/>
-        <datalist id="nf-contraparte-list"></datalist>
-      </div>
-
-      <!-- Col 2 -->
-      <div class="fg">
-        <label class="fl">Importe (EUR, IVA incl.) *</label>
-        <input id="nf-importe" class="fi" type="number" step="0.01" placeholder="0,00"/>
-      </div>
-      <div class="fg">
-        <label class="fl">IVA %</label>
-        <select id="nf-iva" class="fi">
-          <option value="4">4%</option>
-          <option value="10">10%</option>
-          <option value="21" selected>21%</option>
-        </select>
-      </div>
-      <div class="fg">
-        <label class="fl">Obra / Proyecto</label>
-        <input id="nf-obra" class="fi" type="text" placeholder="Obra asociada"/>
-      </div>
-
-      <!-- Col 3 -->
-      <div class="fg">
-        <label class="fl">Fecha Factura</label>
-        <input id="nf-fecha" class="fi" type="date"/>
-      </div>
-      <div class="fg">
-        <label class="fl">Fecha Cobro / Pago</label>
-        <input id="nf-fechacobro" class="fi" type="date"/>
-      </div>
-      <div class="fg">
-        <label class="fl">Partida de obra (opcional)</label>
-        <input id="nf-partida" class="fi" type="text" placeholder="Ej: Fontanería, Alicatado..."/>
-      </div>
-
-      <!-- Concepto a ancho completo -->
-      <div class="fg" style="grid-column:1/-1;">
-        <label class="fl">Concepto / comentarios</label>
-        <textarea id="nf-concepto" class="fi" style="resize:none;height:56px;" placeholder="Detalle de la factura (opcional)"></textarea>
-      </div>
-
+  <div class="modal-box" style="max-width:1100px;">
+    <div class="modal-title">Registrar factura</div>
+    <!-- Fila 1: Tipo · Nº factura · Cliente -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 2fr;gap:12px;">
+      <div class="fg"><label class="fl">Tipo</label><select id="nf-tipo" class="fs"><option value="Emitida">Emitida (ingreso)</option><option value="Recibida">Recibida (gasto)</option><option value="Nómina">Nómina / pago trabajador</option></select></div>
+      <div class="fg"><label class="fl">Nº factura</label><input id="nf-num" class="fi" type="text" placeholder="F-2026-001"/></div>
+      <div class="fg"><label class="fl">Cliente / Proveedor / Trabajador *</label><input id="nf-contraparte" class="fi" type="text" placeholder="Nombre" list="nf-contraparte-list" autocomplete="off"/><datalist id="nf-contraparte-list"></datalist></div>
     </div>
-
-    <!-- Footer -->
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:18px;padding-top:14px;border-top:1.5px solid var(--border);">
-      <label style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--brown);cursor:pointer;font-weight:600;">
-        <input type="checkbox" id="nf-pagado" style="accent-color:var(--orange);width:16px;height:16px;"/>
+    <!-- Fila 2: Importe · IVA · Fecha factura · Fecha cobro -->
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:12px;margin-top:10px;">
+      <div class="fg"><label class="fl">Importe (EUR, IVA incl.) *</label><input id="nf-importe" class="fi" type="number" step="0.01" placeholder="0,00"/></div>
+      <div class="fg"><label class="fl">IVA %</label><select id="nf-iva" class="fs"><option value="4">4%</option><option value="10">10%</option><option value="21" selected>21%</option></select></div>
+      <div class="fg"><label class="fl">Fecha factura</label><input id="nf-fecha" class="fi" type="date"/></div>
+      <div class="fg"><label class="fl">Fecha cobro / pago</label><input id="nf-fechacobro" class="fi" type="date"/></div>
+    </div>
+    <!-- Fila 3: Categoría operativa o Obra -->
+    <div style="margin-top:10px;padding:10px 14px;background:var(--surface2,#faf8f5);border:1.5px solid var(--border);border-radius:var(--r-sm);">
+      <label style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700;color:var(--brown);cursor:pointer;">
+        <input type="checkbox" id="nf-operativa" style="accent-color:var(--orange);width:17px;height:17px;" onchange="toggleNfOperativa(this.checked)"/>
+        Operativa empresarial (gestoría, alquiler, suministros…)
+      </label>
+      <div id="nf-operativa-cat-wrap" style="display:none;margin-top:8px;">
+        <label class="fl">Categoría</label>
+        <select id="nf-operativa-cat" class="fs">
+          <option value="Gestoría / asesoría">Gestoría / asesoría</option>
+          <option value="Alquiler oficina / local">Alquiler oficina / local</option>
+          <option value="Suministros (luz, agua, gas)">Suministros (luz, agua, gas)</option>
+          <option value="Telecomunicaciones">Telecomunicaciones (teléfono, internet)</option>
+          <option value="Material de oficina">Material de oficina</option>
+          <option value="Software / suscripciones">Software / suscripciones</option>
+          <option value="Seguros">Seguros</option>
+          <option value="Publicidad / marketing">Publicidad / marketing</option>
+          <option value="Otros gastos operativos">Otros gastos operativos</option>
+        </select>
+      </div>
+    </div>
+    <!-- Fila 3b: Obra · Partida (ocultas si operativa empresarial) -->
+    <div id="nf-obra-wrap" style="display:grid;grid-template-columns:2fr 1fr;gap:12px;margin-top:10px;">
+      <div class="fg"><label class="fl">Obra / proyecto</label><input id="nf-obra" class="fi" type="text" placeholder="Obra asociada"/></div>
+      <div class="fg"><label class="fl">Partida de obra</label><input id="nf-partida" class="fi" type="text" placeholder="Ej: Fontanería, Alicatado..."/></div>
+    </div>
+    <!-- Fila 4: Concepto -->
+    <div class="fg" style="margin-top:10px;"><label class="fl">Concepto / comentarios</label><textarea id="nf-concepto" class="fi" style="resize:vertical;min-height:52px;" placeholder="Detalle de la factura (opcional)"></textarea></div>
+    <!-- Marcar cobrada -->
+    <div style="border:1.5px solid var(--orange);border-radius:var(--r-sm);padding:12px 16px;background:#FFF8F4;margin-top:10px;">
+      <label style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700;color:var(--brown);cursor:pointer;">
+        <input type="checkbox" id="nf-pagado" style="accent-color:var(--orange);width:18px;height:18px;"/>
         Marcar como cobrada / pagada
       </label>
-      <div style="display:flex;gap:10px;">
-        <button class="btn btn-o" onclick="cerrarModal('modal-nueva-factura')">Cancelar</button>
-        <button class="btn btn-p" onclick="guardarFacturaManual()">Guardar factura</button>
-      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-o" onclick="cerrarModal('modal-nueva-factura')">Cancelar</button>
+      <button class="btn btn-p" onclick="guardarFacturaManual()">Guardar factura</button>
     </div>
   </div>
-</div>
 </div>
 
 <script>
@@ -1272,7 +1390,9 @@ const TIPOS_EVENTO=[{id:"visita",label:"Visita a obra",color:"#DCFCE7",accent:"#
 const FN=["2026-01-01","2026-01-06","2026-04-03","2026-05-01","2026-08-15","2026-10-12","2026-11-01","2026-12-06","2026-12-08","2026-12-25"];
 const FL=["2026-06-24","2026-09-11"];
 const MESES=["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
-let DATA=[],FICHAJES=[],CONTROLES={},CONTRASENAS=[],PREVISIONES=[],PRESUPUESTOS_OBRA={},PAGOS_OBRA={};
+let DATA=[],FICHAJES=[],CONTROLES={},CONTRASENAS=[],INVERSORES=[],PREVISIONES=[],PRESUPUESTOS_OBRA={},PAGOS_OBRA={};
+let vacCalMes=new Date().getMonth(),vacCalAnio=new Date().getFullYear();
+let vacRangoInicio=null; // ISO fecha inicio rango (null = sin rango activo)
 let calAusencias={},CAL_EVENTOS=[],FESTIVOS_MANUALES=[];
 let bankSaldo=null,bankDate="",nextId=1000,usuarioActual=null;
 let filtroDesde="",filtroHasta="",fichajeTab="hoy",factTab="lista",ivaTab=1;
@@ -1295,63 +1415,27 @@ async function guardarConfig(obj){try{await fetch(SHEETS_URL,{method:"POST",head
 async function cargarDatos(){
   setSB("Cargando datos…","loading");
   const pj=(o,k,def)=>{try{const v=o?o[k]:null;if(v==null||v==="")return def;return typeof v==="string"?JSON.parse(v):v;}catch(e){return def;}};
-  const tryFetch=async(action)=>{try{const r=await fetch(SHEETS_URL+"?action="+action);if(!r||!r.ok)return null;return await r.json();}catch(e){return null;}};
   try{
-    let raw=await tryFetch("getConfig");
-    if(!raw) raw=await tryFetch("getAll");
-    if(!raw) raw=await tryFetch("getData");
-    if(!raw) raw=await tryFetch("get");
-    if(!raw) throw new Error("Sin respuesta del servidor de datos");
-    const cfg=raw.config||raw.data||raw||{};
-    FICHAJES          = pj(cfg,"fichajes",[]);
-    CONTROLES         = pj(cfg,"controles_obra",{});
-    CONTRASENAS       = pj(cfg,"contrasenas",[]);
-    PREVISIONES       = pj(cfg,"previsiones",[]);
-    calAusencias      = pj(cfg,"cal_ausencias",{});
-    CAL_EVENTOS       = pj(cfg,"cal_eventos",[]);
-    CAL_EVENTOS.forEach((e,i)=>{if(e.id==null)e.id=Date.now()+i;});
-    FESTIVOS_MANUALES = pj(cfg,"festivos_manuales",[]);
-    PROYECTOS         = pj(cfg,"proyectos",[]);
-    FACTURAS_MANUALES = pj(cfg,"facturas_manuales",[]);
-    PROY_PRESUPUESTOS = pj(cfg,"presupuestos_obra",{});
-    PROY_FACTURAS     = pj(cfg,"pagos_obra",{});
-    PROY_GASTOS       = pj(cfg,"gastos_obra",{});
-    PROY_PLANNING     = pj(cfg,"planning_obra",{});
-    PROVEEDORES       = pj(cfg,"proveedores",[]);
-    TRABAJADORES      = pj(cfg,"trabajadores",[]);
-    PAGOS_TRAB        = pj(cfg,"pagos_trabajadores",[]);
-    if(cfg.bank_saldo!=null&&cfg.bank_saldo!=="") bankSaldo=Number(cfg.bank_saldo);
-    if(cfg.bank_date) bankDate=cfg.bank_date;
-    let fac = raw.facturas||raw.rows||cfg.facturas||cfg.data||null;
-    if(fac==null){
-      const d2=await tryFetch("getAll");
-      if(d2) fac=d2.rows||d2.facturas||d2.data||(Array.isArray(d2)?d2:null);
-    }
-    if(typeof fac==="string"){try{fac=JSON.parse(fac);}catch(e){fac=null;}}
-    DATA = Array.isArray(fac)?fac.map(r=>({
-      ...r,
-      id: r.id,
-      fechaCobro: r.fechaCobro||"",
-      fechaFactura: r.fechaFactura||"",
-      proveedor: r.proveedor||"",
-      cliente: r.cliente||"",
-      nFactura: r.nFactura||r.numFactura||"",
-      obra: r.obra||"",
-      tipo: r.tipo||"",
-      importe: Number(r.importe)||0,
-      pagado: r.pagado===true||r.pagado==="TRUE"||r.pagado==="true"||r.pagado===1||r.pagado==="1",
-      gestoria: r.gestoria||"",
-      concepto: r.concepto||"",
-    })):[];
+    let cfg={};
+    try{const r1=await fetch(SHEETS_URL+"?action=getConfig");if(r1&&r1.ok){const j1=await r1.json();cfg=j1.config||j1||{};}}catch(e){console.warn("getConfig:",e);}
+    CONTRASENAS=pj(cfg,"contrasenas",[]);INVERSORES=pj(cfg,"inversores",[]);PROYECTOS=pj(cfg,"proyectos",[]);FACTURAS_MANUALES=pj(cfg,"facturas_manuales",[]);
+    PROY_PRESUPUESTOS=pj(cfg,"presupuestos_obra",{});PROY_FACTURAS=pj(cfg,"pagos_obra",{});PROY_GASTOS=pj(cfg,"gastos_obra",{});
+    PROY_PLANNING=pj(cfg,"planning_obra",{});PROVEEDORES=pj(cfg,"proveedores",[]);TRABAJADORES=pj(cfg,"trabajadores",[]);
+    PAGOS_TRAB=pj(cfg,"pagos_trabajadores",[]);FICHAJES=pj(cfg,"fichajes",[]);CONTROLES=pj(cfg,"controles_obra",{});
+    PREVISIONES=pj(cfg,"previsiones",[]);calAusencias=pj(cfg,"cal_ausencias_v2",{});CAL_EVENTOS=pj(cfg,"cal_eventos",[]);
+    FESTIVOS_MANUALES=pj(cfg,"festivos_manuales",[]);
+    if(!PROVEEDORES.length){try{const lp=localStorage.getItem("gestrp_proveedores");if(lp)PROVEEDORES=JSON.parse(lp);}catch(e){}}
+    if(!TRABAJADORES.length){try{const lt=localStorage.getItem("gestrp_trabajadores");if(lt)TRABAJADORES=JSON.parse(lt);}catch(e){}}
+    if(!CONTRASENAS.length){try{const lc=localStorage.getItem("gestrp_contrasenas");if(lc)CONTRASENAS=JSON.parse(lc);}catch(e){}}
+    if(!INVERSORES.length){try{const li=localStorage.getItem("gestrp_inversores");if(li)INVERSORES=JSON.parse(li);}catch(e){}}
+    let rows=[];
+    try{const r2=await fetch(SHEETS_URL+"?action=getAll");if(r2&&r2.ok){const j2=await r2.json();rows=j2.rows||j2.facturas||(Array.isArray(j2)?j2:[]);}}catch(e){console.warn("getAll:",e);}
+    DATA=rows.map(r=>({...r,importe:Number(r.importe)||0,pagado:r.pagado===true||String(r.pagado).toUpperCase()==="TRUE",nFactura:r.nFactura||r.nFactura||"",fechaCobro:r.fechaCobro||"",fechaFactura:r.fechaFactura||"",proveedor:r.proveedor||"",cliente:r.cliente||"",obra:r.obra||"",tipo:r.tipo||"",gestoria:r.gestoria||"",concepto:r.concepto||""}));
     if(FACTURAS_MANUALES.length)DATA=DATA.concat(FACTURAS_MANUALES);
     renderPaginaActual();
-    setSB("Datos cargados"+(DATA.length?"":" · sin facturas (revisar lectura del Sheet)"),"ok");
-    if(DATA.length) setTimeout(()=>setSB("",""),2500);
-  }catch(e){
-    console.error("cargarDatos:",e);
-    try{renderPaginaActual();}catch(_){}
-    setSB("⚠ No se pudieron cargar los datos del Sheet — revisa la conexión o pásame tu Apps Script","err");
-  }
+    setSB(DATA.length?"Datos cargados · "+DATA.length+" facturas":"Sin facturas","ok");
+    if(DATA.length)setTimeout(()=>setSB("",""),3000);
+  }catch(e){console.error("cargarDatos:",e);try{renderPaginaActual();}catch(_){}setSB("Error cargando datos","err");}
 }
 function hacerLogin(){
   const user=document.getElementById("login-user").value.trim();
@@ -1375,6 +1459,7 @@ function aplicarRol(rol){
   const a=rol==="admin";
   const tF=document.getElementById("tab-facturas");if(tF)tF.style.display=a?"":"none";
   const tC=document.getElementById("tab-contrasenas");if(tC)tC.style.display=a?"":"none";
+  const tI=document.getElementById("tab-inversores");if(tI)tI.style.display=a?"":"none";
   const ct=document.getElementById("card-trabajadores");if(ct)ct.style.display="";
   const cp=document.getElementById("card-panel-fich");if(cp)cp.style.display="";
   const bf=document.getElementById("btn-add-fich-man");if(bf)bf.style.display=a?"":"none";
@@ -1390,59 +1475,24 @@ function renderProveedores(){
   const host=document.getElementById("prov-list");if(!host)return;
   const rec=DATA.filter(r=>!esF(r)&&r.importe<0&&(r.tipo||"")!=="Nómina"&&(r.proveedor||"").trim());
   const agg={};
-  rec.forEach(r=>{
-    const key=(r.proveedor||"").trim();const k=key.toLowerCase();
-    if(!agg[k])agg[k]={nombre:key,facturas:0,costes:0,pagado:0,obras:new Set()};
-    const a=agg[k];a.facturas++;
-    const imp=Math.abs(r.importe);a.costes+=imp;
-    if(r.pagado)a.pagado+=imp;
-    if(r.obra)a.obras.add(r.obra);
-  });
-  let lista=Object.values(agg).filter(p=>p.nombre.toLowerCase().includes(q));
-  lista.sort((a,b)=>b.costes-a.costes);
-  const countEl=document.getElementById("prov-header-count");
-  if(countEl)countEl.textContent=lista.length+" proveedores";
-  if(!lista.length){
-    host.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:48px;color:var(--muted2);font-size:14px;">No hay proveedores registrados.</div>';
-    return;
-  }
-  host.innerHTML=lista.map(p=>{
-    const pct=p.costes>0?Math.round(p.pagado/p.costes*100):0;
-    const ini=p.nombre.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
-    return `<div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px 22px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--border2);">
-        <div style="width:44px;height:44px;border-radius:50%;background:#F3EDE8;border:1.5px solid #C4B8AA;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:var(--brown);flex-shrink:0;">${ini}</div>
-        <div style="flex:1;min-width:0;">
-          <div style="font-size:15px;font-weight:700;color:var(--brown);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${p.nombre}</div>
-          <div style="font-size:12px;color:var(--muted2);margin-top:2px;">${p.obras.size} proyecto${p.obras.size!==1?'s':''}</div>
-        </div>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
-        <div>
-          <div style="font-size:11px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;">Facturas</div>
-          <div style="font-size:18px;font-weight:700;color:var(--brown);">${p.facturas}</div>
-        </div>
-        <div>
-          <div style="font-size:11px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;">Total costes</div>
-          <div style="font-size:18px;font-weight:700;color:var(--red);">${fmtS(p.costes)}</div>
-        </div>
-      </div>
-      <div style="margin-bottom:10px;">
-        <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted2);margin-bottom:4px;">
-          <span>Pagado</span><span style="font-weight:700;color:var(--green);">${pct}%</span>
-        </div>
-        <div style="height:5px;background:var(--border2);border-radius:3px;overflow:hidden;">
-          <div style="height:100%;width:${pct}%;background:var(--green);border-radius:3px;transition:width .3s;"></div>
-        </div>
-      </div>
-      <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted2);">
-        <span>Pagado: <strong style="color:var(--green);">${fmtS(p.pagado)}</strong></span>
-        <span>Pendiente: <strong style="color:var(--red);">${fmtS(p.costes-p.pagado)}</strong></span>
-      </div>
-    </div>`;
-  }).join('');
+  rec.forEach(r=>{const key=(r.proveedor||"").trim();const k=key.toLowerCase();if(!agg[k])agg[k]={nombre:key,facturas:0,costes:0,pagado:0,obras:new Set()};const a=agg[k];a.facturas++;const imp=Math.abs(r.importe);a.costes+=imp;if(r.pagado)a.pagado+=imp;if(r.obra)a.obras.add(r.obra);});
+  const manual={};PROVEEDORES.forEach((p,i)=>{manual[(p.nombre||"").trim().toLowerCase()]={...p,_pi:i};});
+  const keys=new Set([...Object.keys(agg),...Object.keys(manual)]);
+  let rows=[...keys].map(k=>{const a=agg[k]||{nombre:(manual[k]&&manual[k].nombre)||k,facturas:0,costes:0,pagado:0,obras:new Set()};const m=manual[k]||{};return {nombre:a.nombre,facturas:a.facturas,costes:a.costes,pagado:a.pagado,pendiente:a.costes-a.pagado,proyectos:a.obras.size,cif:m.cif||"",contacto:m.contacto||"",telefono:m.telefono||"",email:m.email||"",notas:m.notas||"",_pi:(m._pi!==undefined?m._pi:-1)};});
+  if(q)rows=rows.filter(r=>r.nombre.toLowerCase().includes(q)||(r.contacto||"").toLowerCase().includes(q));
+  const ord=(typeof provOrden!=="undefined"&&provOrden)?provOrden:"nombre";
+  rows.sort((a,b)=>ord==="nombre"?a.nombre.localeCompare(b.nombre):ord==="proyectos"?b.proyectos-a.proyectos:ord==="facturas"?b.facturas-a.facturas:ord==="costes"?b.costes-a.costes:ord==="pagado"?b.pagado-a.pagado:ord==="pendiente"?b.pendiente-a.pendiente:0);
+  $s("prov-header-count",rows.length+" "+(rows.length===1?"proveedor":"proveedores"));
+  if(!rows.length){host.innerHTML=`<div style="border:1px solid var(--border);border-radius:var(--r);background:var(--surface);padding:60px 20px;text-align:center;color:var(--muted2);"><div style="font-size:15px;">No hay proveedores todav\u00eda \u2014 se ir\u00e1n creando a partir de las facturas recibidas</div></div>`;return;}
+  const metric=(l,v,c)=>`<div><div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px;">${l}</div><div style="font-size:15px;font-weight:800;color:${c||"var(--brown)"};">${v}</div></div>`;
+  host.innerHTML=rows.map(p=>{
+    const contact=[p.cif,p.contacto,p.telefono,p.email].filter(Boolean).map(esc).join(" \u00b7 ");
+    const acc=p._pi>=0
+      ?`<button class="btn btn-o" style="padding:6px 12px;font-size:13px;" onclick="editarProveedor(${p._pi})">Editar</button><button class="btn btn-o" style="padding:6px 12px;font-size:13px;color:var(--red);" onclick="eliminarProveedor(${p._pi})">Eliminar</button>`
+      :`<button class="btn btn-o" style="padding:6px 12px;font-size:13px;" onclick="abrirModalProveedorNombre(${JSON.stringify(p.nombre)})">+ A\u00f1adir ficha</button>`;
+    return `<div class="card" style="margin-bottom:12px;"><div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;"><div style="display:flex;gap:14px;align-items:center;"><div style="width:44px;height:44px;border-radius:10px;background:#F3EDE8;color:var(--brown);font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:17px;">${esc((p.nombre||"?")[0].toUpperCase())}</div><div><div style="font-weight:700;color:var(--brown);font-size:15px;">${esc(p.nombre||"\u2014")}</div><div style="font-size:13px;color:var(--muted);margin-top:2px;">${contact||"Sin datos de contacto"}</div></div></div><div style="display:flex;gap:6px;flex-shrink:0;">${acc}</div></div><div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:14px;padding-top:14px;border-top:1px solid var(--border);">${metric("N\u00ba facturas",p.facturas)}${metric("N\u00ba proyectos",p.proyectos)}${metric("Costes totales",fmt(p.costes),"var(--red)")}${metric("Pagado",fmt(p.pagado),"var(--green)")}${metric("Pendiente",fmt(p.pendiente),p.pendiente>0?"var(--orange)":"var(--muted2)")}</div></div>`;
+  }).join("");
 }
-
 function abrirModalProveedorNombre(n){abrirModalProveedor();const e=document.getElementById("prov-nombre");if(e)e.value=n;}
 function abrirModalProveedor(){document.getElementById("modal-prov-titulo").textContent="Nuevo proveedor";document.getElementById("prov-edit-idx").value="";["nombre","cif","contacto","telefono","email","notas"].forEach(k=>{const e=document.getElementById("prov-"+k);if(e)e.value="";});abrirModal("modal-proveedor");}
 function editarProveedor(i){const p=PROVEEDORES[i];if(!p)return;document.getElementById("modal-prov-titulo").textContent="Editar proveedor";document.getElementById("prov-edit-idx").value=i;["nombre","cif","contacto","telefono","email","notas"].forEach(k=>{const e=document.getElementById("prov-"+k);if(e)e.value=p[k]||"";});abrirModal("modal-proveedor");}
@@ -1450,8 +1500,6 @@ async function guardarProveedor(){const nombre=document.getElementById("prov-nom
 async function eliminarProveedor(i){if(!confirm("\u00bfEliminar este proveedor?"))return;PROVEEDORES.splice(i,1);await guardarConfig({proveedores:JSON.stringify(PROVEEDORES)});renderProveedores();}
 
 // ===================== TRABAJADORES =====================
-let trabTab="listado";
-function setTrabTab(t,el){trabTab=t;document.querySelectorAll("#page-trabajadores .tab").forEach(b=>b.classList.remove("active"));if(el)el.classList.add("active");renderTrabajadores();}
 function rosterTrab(){
   const fichas={};TRABAJADORES.forEach((t,i)=>{fichas[(t.nombre||"").toLowerCase()]={...t,_i:i};});
   const usados=new Set();
@@ -1461,38 +1509,65 @@ function rosterTrab(){
 }
 function pagosDe(nombre){const k=(nombre||"").toLowerCase();return DATA.filter(r=>(r.tipo||"")==="Nómina"&&(r.proveedor||"").toLowerCase()===k).map(r=>({fecha:r.fechaFactura||r.fechaCobro||"",concepto:r.concepto||r.nFactura||"",importe:Math.abs(Number(r.importe)||0)}));}
 function renderTrabajadores(){
-  const q=(document.getElementById("trab-search")?.value||"").toLowerCase();
-  const host=document.getElementById("trab-list");if(!host)return;
-  let list=rosterTrab().filter(t=>!q||t.nombre.toLowerCase().includes(q)||(t.email||"").toLowerCase().includes(q));
-  $s("trab-header-count",list.length+" "+(list.length===1?"trabajador":"trabajadores"));
-  if(trabTab==="dia"||trabTab==="trab"){host.innerHTML=`<div style="border:1px solid var(--border);border-radius:var(--r);background:var(--surface);padding:50px 20px;text-align:center;color:var(--muted2);"><div style="font-size:15px;margin-bottom:6px;">Control de horas</div><div style="font-size:13px;">Usa la pestaña <b>Fichaje</b> para el detalle por día y por trabajador.</div></div>`;return;}
-  if(trabTab==="resumen"){
-    const rows=list.map(t=>{const pg=pagosDe(t.nombre);return {n:t.nombre,c:pg.length,tot:pg.reduce((s,p)=>s+(Number(p.importe)||0),0)};}).sort((a,b)=>b.tot-a.tot);
-    host.innerHTML=`<div class="card"><div class="card-title">Resumen de pagos por trabajador</div><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Trabajador</th><th class="tr">Nº pagos</th><th class="tr">Total pagado</th></tr></thead><tbody>${rows.map(r=>`<tr><td style="font-weight:600">${esc(r.n)}</td><td class="tr">${r.c}</td><td class="tr fw7" style="color:var(--green)">${fmt(r.tot)}</td></tr>`).join("")||'<tr><td colspan="3" style="text-align:center;color:var(--muted2);padding:16px">Sin pagos registrados</td></tr>'}</tbody></table></div></div>`;return;
-  }
-  const field=(l,v)=>`<div style="margin-bottom:8px"><div class="pc-fl">${l}</div><div class="pc-fv">${v}</div></div>`;
-  const cards=list.map(t=>{
-    const pgs=pagosDe(t.nombre);const total=pgs.reduce((s,p)=>s+(Number(p.importe)||0),0);
-    const acc=`<button class="btn btn-o" style="padding:6px 12px;font-size:14px" onclick="abrirModalTrabajador(${JSON.stringify(t.nombre)})">Editar</button>`+(t.base?"":`<button class="btn btn-o" style="padding:6px 12px;font-size:14px;color:var(--red)" onclick="eliminarTrabajador(${JSON.stringify(t.nombre)})">Eliminar</button>`);
-    return `<div class="pc">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-        <div style="width:40px;height:40px;border-radius:10px;background:#F3EDE8;color:var(--brown);font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">${esc((t.nombre||"?")[0].toUpperCase())}</div>
-        <div style="min-width:0;"><div class="pc-name" style="margin-bottom:3px;">${esc(t.nombre)}</div><span class="badge">${esc(t.rol)}</span></div>
+  const host=document.getElementById("trabajadores-list");if(!host)return;
+  const list=rosterTrab();
+  if(!list.length){host.innerHTML=`<div style="text-align:center;padding:24px;color:var(--muted2);font-size:13px;">Sin trabajadores. Pulsa + Crear para añadir.</div>`;return;}
+
+  // Calcular días de ausencia por persona desde calAusencias (año en curso)
+  const anioActual=new Date().getFullYear().toString();
+  const ausxPers={};
+  Object.entries(calAusencias||{}).forEach(([fecha,personas])=>{
+    if(!fecha.startsWith(anioActual))return;
+    if(typeof personas!=="object"||Array.isArray(personas))return;
+    Object.entries(personas).forEach(([pid,tipo])=>{
+      if(!ausxPers[pid])ausxPers[pid]={vacaciones:0,libre:0,baja:0,otros:0};
+      if(tipo==="vacaciones")ausxPers[pid].vacaciones++;
+      else if(tipo==="libre")ausxPers[pid].libre++;
+      else if(tipo==="baja")ausxPers[pid].baja++;
+      else if(tipo)ausxPers[pid].otros++;
+    });
+  });
+
+  host.innerHTML=`<div style="display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);gap:14px;height:100%;">` +
+  list.map(t=>{
+    const initials=esc((t.nombre||"?")[0].toUpperCase());
+    const aus=ausxPers[t.equipoId||""]||ausxPers[t.nombre]||{vacaciones:0,libre:0,baja:0,otros:0};
+    const vacStr=aus.vacaciones?`<span style="display:flex;align-items:center;gap:5px;font-size:13px;color:var(--brown);font-weight:600;"><span style="width:8px;height:8px;border-radius:50%;background:#C4714A;flex-shrink:0;display:inline-block;"></span>${aus.vacaciones} d. vacaciones</span>`:"";
+    const libStr=aus.libre?`<span style="display:flex;align-items:center;gap:5px;font-size:13px;color:var(--brown);font-weight:600;"><span style="width:8px;height:8px;border-radius:50%;background:#2D6A4F;flex-shrink:0;display:inline-block;"></span>${aus.libre} d. libre</span>`:"";
+    const bajStr=aus.baja?`<span style="display:flex;align-items:center;gap:5px;font-size:13px;color:var(--brown);font-weight:600;"><span style="width:8px;height:8px;border-radius:50%;background:#7C3AED;flex-shrink:0;display:inline-block;"></span>${aus.baja} d. baja</span>`:"";
+    const otStr=aus.otros?`<span style="display:flex;align-items:center;gap:5px;font-size:13px;color:var(--muted2);"><span style="width:8px;height:8px;border-radius:50%;background:var(--border);flex-shrink:0;display:inline-block;"></span>${aus.otros} d. otros</span>`:"";
+    const sinAus=(!aus.vacaciones&&!aus.libre&&!aus.baja&&!aus.otros);
+    const btnElim=t.base?"":`<button class="btn btn-o" style="padding:5px;font-size:12px;color:var(--red);width:100%;margin-top:4px;" data-trab-del="${esc(t.nombre)}" onclick="eliminarTrabajador(this.dataset.trabDel)">Borrar</button>`;
+    return `<div style="background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r);padding:18px 16px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow);">
+      <div style="display:flex;align-items:center;gap:11px;">
+        <div style="width:46px;height:46px;border-radius:12px;background:#F3EDE8;color:var(--brown);font-weight:900;font-size:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">${initials}</div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:15px;font-weight:800;color:var(--brown);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${esc(t.nombre)}</div>
+          <div style="font-size:13px;color:var(--muted2);margin-top:2px;">${esc(t.rol||"Equipo")}</div>
+        </div>
       </div>
-      ${field("Email",esc(t.email||"\u2014"))}
-      ${field("Tel\u00e9fono",esc(t.telefono||"\u2014"))}
-      ${field("Coste / hora",t.coste_hora?esc(t.coste_hora)+" EUR/h":"\u2014")}
-      ${t.notas?`<div class="pc-notes">${esc(t.notas)}</div>`:""}
-      <div style="margin-top:10px;padding:10px 12px;background:var(--bg);border-radius:var(--r-sm);display:flex;justify-content:space-between;align-items:center;">
-        <div><div class="pc-fl" style="margin-bottom:2px;">Gasto total</div><div style="font-size:12px;color:var(--muted2);">${pgs.length} n\u00f3mina${pgs.length===1?"":"s"}</div></div>
-        <div style="font-size:20px;font-weight:800;color:var(--green);">${fmt(total)}</div>
+      ${(t.telefono||t.email)?`<div style="border-top:1px solid var(--border2);padding-top:9px;display:flex;flex-direction:column;gap:4px;">
+        ${t.telefono?`<span style="font-size:13px;color:var(--muted2);">${esc(t.telefono)}</span>`:""}
+        ${t.email?`<span style="font-size:13px;color:var(--muted2);">${esc(t.email)}</span>`:""}
+      </div>`:""}
+      <div style="border-top:1px solid var(--border2);padding-top:9px;display:flex;flex-direction:column;gap:5px;min-height:52px;">
+        ${vacStr}${libStr}${bajStr}${otStr}
+        ${sinAus?`<span style="font-size:13px;color:var(--muted2);">Sin ausencias registradas</span>`:""}
       </div>
-      <div class="pc-act">${acc}</div>
+      <button class="btn btn-o" style="padding:7px;font-size:13px;width:100%;margin-top:auto;" data-trab-edit="${esc(t.nombre)}" onclick="abrirModalTrabajador(this.dataset.trabEdit)">Editar</button>
+      ${btnElim}
     </div>`;
-  }).join("");
-  host.innerHTML=`<div class="pass-grid">`+cards+`<div class="pass-add" onclick="abrirModalTrabajador()"><div style="font-size:20px;color:var(--muted);font-weight:300">+</div><div class="pass-add-txt">A\u00f1adir trabajador</div></div></div>`;
+  }).join("") + `</div>`;
 }
-function abrirModalTrabajador(nombre=null){const t=(nombre==null?{}:(rosterTrab().find(x=>x.nombre===nombre)||{}));document.getElementById("trab-edit-idx").value=(nombre==null?"":nombre);$s("modal-trab-titulo",nombre==null?"Nuevo trabajador":"Editar ficha \u2014 "+nombre);["nombre","rol","email","telefono","coste_hora","notas"].forEach(k=>{const el=document.getElementById("trab-"+k);if(el)el.value=t[k]||"";});const nm=document.getElementById("trab-nombre");if(nm)nm.readOnly=!!t.base;abrirModal("modal-trabajador");}
+function abrirModalTrabajador(nombre=null){
+  const norm=s=>(s||"").normalize("NFD").replace(/\p{Diacritic}/gu,"").toLowerCase();
+  const t=(nombre==null||nombre==="")?{}:(rosterTrab().find(x=>norm(x.nombre)===norm(nombre))||{});
+  document.getElementById("trab-edit-idx").value=(nombre==null||nombre===""?"":nombre);
+  $s("modal-trab-titulo",(nombre==null||nombre==="")?("Nuevo trabajador"):("Editar ficha \u2014 "+nombre));
+  ["nombre","rol","email","telefono","coste_hora","notas"].forEach(k=>{const el=document.getElementById("trab-"+k);if(el)el.value=t[k]||"";});
+  const nm=document.getElementById("trab-nombre");if(nm)nm.readOnly=!!t.base;
+  abrirModal("modal-trabajador");
+}
 async function guardarTrabajador(){const nombre=document.getElementById("trab-nombre").value.trim();if(!nombre){alert("El nombre es obligatorio");return;}const entry={nombre,rol:document.getElementById("trab-rol").value.trim()||"Equipo",email:document.getElementById("trab-email").value.trim(),telefono:document.getElementById("trab-telefono").value.trim(),coste_hora:document.getElementById("trab-coste_hora").value.trim(),notas:document.getElementById("trab-notas").value.trim()};const orig=document.getElementById("trab-edit-idx").value;const idx=orig?TRABAJADORES.findIndex(t=>(t.nombre||"").toLowerCase()===orig.toLowerCase()):-1;if(idx>=0)TRABAJADORES[idx]=entry;else TRABAJADORES.push(entry);await guardarConfig({trabajadores:JSON.stringify(TRABAJADORES)});cerrarModal("modal-trabajador");renderTrabajadores();}
 async function eliminarTrabajador(nombre){if(!confirm("¿Eliminar este trabajador?"))return;const i=TRABAJADORES.findIndex(t=>(t.nombre||"").toLowerCase()===(nombre||"").toLowerCase());if(i>=0){TRABAJADORES.splice(i,1);await guardarConfig({trabajadores:JSON.stringify(TRABAJADORES)});}renderTrabajadores();}
 
@@ -1506,8 +1581,8 @@ function renderPaginaActual(){
   if(paginaActual==="facturas")renderFacturas();
   if(paginaActual==="calendario")renderCalendario();
   if(paginaActual==="contrasenas")renderContrasenas();
+  if(paginaActual==="inversores")renderInversores();
   if(paginaActual==="proveedores")renderProveedores();
-  if(paginaActual==="trabajadores")renderTrabajadores();
 }
 function irA(pagina,btn){
   paginaActual=pagina;
@@ -1557,8 +1632,9 @@ function renderPanel(){
   const sPC=pC.reduce((s,r)=>s+r.importe,0);const sPP=pP.reduce((s,r)=>s+Math.abs(r.importe),0);const netoP=sPC-sPP;
   $s("fact-count-panel",(pC.length+pP.length)+" facturas");$s("est-cobrar",fmt(sPC));$s("est-pagar",fmt(sPP));
   const estEl=document.getElementById("est-neto");if(estEl){estEl.textContent=fmtS(netoP);estEl.style.color=netoP>=0?"var(--green)":"var(--red)";}
-  renderAlertas(ops);renderVacaciones();renderRankings(om);renderActividad(data);
-  if(usuarioActual?.rol==="admin")renderTrabajadoresPanel();
+  renderAlertas(ops);renderVacaciones();
+  renderVacCal();renderRankings(om);renderActividad(data);
+  renderTrabajadores();
   renderGraficoEvolucion();
 }
 function renderAlertas(ops){
@@ -1619,7 +1695,6 @@ function renderFichajeHoy(){
   if(!mf.length){listEl.innerHTML='<div class="empty"><div class="empty-txt">Sin fichajes hoy</div></div>';return;}
   let html="";for(let i=0;i<mf.length;i++){const f=mf[i];let hs="";if(f.tipo==="salida"&&i>0){const e=mf[i-1];const m=mn(f.hora)-mn(e.hora);if(m>0)hs=`<span class="fe-horas">${fmtH(m)}</span>`;}const p=EQUIPO.find(e=>e.id===f.persona);html+=`<div class="fe"><span class="fe-hora">${f.hora}</span><span class="fe-tipo ${f.tipo==="entrada"?"e":"s"}">${f.tipo==="entrada"?"Entrada":"Salida"}</span><span class="fe-obra">${esc(f.obra||"\u2014")}${p?" \xb7 "+p.nombre:""}</span>${hs}</div>`;}
   listEl.innerHTML=html;
-  if(usuarioActual?.rol==="admin")renderTrabajadoresPanel();
   renderGraficoEvolucion();
 }
 async function accionFichar(){const uid=usuarioActual?.equipoId;if(!uid){alert("Sin perfil de fichaje configurado");return;}const obra=document.getElementById("fich-obra-sel")?.value;if(!obra){alert("Selecciona un proyecto primero");return;}const h=hoy(),ho=hora();const mf=FICHAJES.filter(f=>f.fecha===h&&f.persona===uid).sort((a,b)=>a.hora.localeCompare(b.hora));const fich=mf.filter(f=>f.tipo==="entrada").length>mf.filter(f=>f.tipo==="salida").length;FICHAJES.push({id:Date.now(),persona:uid,obra,fecha:h,hora:ho,tipo:fich?"salida":"entrada"});await guardarConfig({fichajes:JSON.stringify(FICHAJES)});renderFichajeHoy();}
@@ -1649,63 +1724,7 @@ function switchFactTab(tab,btn){
   if(tab==="vencimientos")renderVencimientos();
   if(tab==="iva")renderIVA(ivaTab);
 }
-function renderFacturas(){
-  const search=(document.getElementById("fact-search")?.value||"").toLowerCase();
-  const anyo=document.getElementById("fact-anio")?.value||"all";
-  const mes=document.getElementById("fact-mes")?.value||"all";
-  const eur=n=>Math.abs(Number(n)||0).toLocaleString("es-ES",{minimumFractionDigits:2,maximumFractionDigits:2})+" €";
-  let base=DATA.filter(r=>!esF(r));
-  if(anyo!=="all")base=base.filter(r=>(r.fechaCobro||r.fechaFactura||"").startsWith(anyo));
-  if(mes!=="all")base=base.filter(r=>(r.fechaCobro||r.fechaFactura||"").slice(5,7)===mes);
-  if(search)base=base.filter(r=>[r.proveedor,r.cliente,r.concepto,r.obra,r.nFactura].some(v=>(v||"").toLowerCase().includes(search)));
-
-  const emitidas=base.filter(r=>r.importe>0);
-  const recibidas=base.filter(r=>r.importe<0);
-  const sumE=emitidas.reduce((s,r)=>s+r.importe,0);
-  const cobrado=emitidas.filter(r=>r.pagado).reduce((s,r)=>s+r.importe,0);
-  const pendCobro=sumE-cobrado;
-  const sumR=recibidas.reduce((s,r)=>s+Math.abs(r.importe),0);
-  const pagado=recibidas.filter(r=>r.pagado).reduce((s,r)=>s+Math.abs(r.importe),0);
-  const pendPago=sumR-pagado;
-
-  const $s=(id,v)=>{const el=document.getElementById(id);if(el)el.textContent=v;};
-  $s("fact-e-total",  eur(sumE));   $s("fact-e-count",  emitidas.length+" Emitidas");
-  $s("fact-e-cobrado",eur(cobrado));$s("fact-e-pend",   eur(pendCobro));
-  $s("fact-r-total",  eur(sumR));   $s("fact-r-count",  recibidas.length+" Recibidas");
-  $s("fact-r-pagado", eur(pagado)); $s("fact-r-pend",   eur(pendPago));
-  // EBITDA = ingresos operativos - gastos operativos (sin nóminas ni financieros)
-  const gastosOp = base.filter(r=>r.importe<0&&(r.tipo||"")!=="Nómina").reduce((s,r)=>s+Math.abs(r.importe),0);
-  const ebitda = sumE - gastosOp;
-  const ebitdaPct = sumE > 0 ? ((ebitda/sumE)*100).toFixed(1)+"%" : "—";
-  $s("fact-ebitda", (ebitda>=0?"+":"-")+eur(Math.abs(ebitda)));
-  $s("fact-ebitda-pct", "Margen: "+ebitdaPct);
-  const elEbitda = document.getElementById("fact-ebitda");
-  if(elEbitda) elEbitda.style.color = ebitda>=0?"var(--green)":"var(--red)";
-  $s("fact-header-count", base.length+" facturas");
-
-  const tbody=document.getElementById("fact-tbody")||document.getElementById("tbody");if(!tbody)return;
-  if(!base.length){tbody.innerHTML='<tr><td colspan="8" style="text-align:center;padding:40px;color:var(--muted2);">Sin facturas</td></tr>';return;}
-  const fmtF=f=>{if(!f)return'—';try{return new Date(f).toLocaleDateString('es-ES',{day:'2-digit',month:'2-digit',year:'numeric'});}catch(e){return f;}};
-  tbody.innerHTML=base.sort((a,b)=>(b.fechaCobro||b.fechaFactura||"").localeCompare(a.fechaCobro||a.fechaFactura||"")).map(r=>{
-    const imp=Number(r.importe)||0;
-    const isEmi=imp>0;
-    const badge=r.pagado?'<span style="background:var(--green-bg);color:var(--green);font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;">'+( isEmi?'Cobrada':'Pagada')+'</span>':'<span style="background:#FEF9EC;color:#D97706;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;">Pendiente</span>';
-    const tipo=isEmi?'<span style="font-size:11px;font-weight:700;color:var(--green);">↑ Emitida</span>':'<span style="font-size:11px;font-weight:700;color:var(--red);">↓ Recibida</span>';
-    return `<tr>
-      <td>${badge}</td>
-      <td>${tipo}</td>
-      <td>${fmtF(r.fechaCobro)}</td>
-      <td>${fmtF(r.fechaFactura)}</td>
-      <td style="font-weight:600;">${r.proveedor||r.cliente||'—'}</td>
-      <td>${r.nFactura||'—'}</td>
-      <td>${r.obra||'—'}</td>
-      <td style="text-align:right;font-weight:700;color:${isEmi?'var(--green)':'var(--red)'};">${(isEmi?'+':'-')+eur(Math.abs(imp))}</td>
-    </tr>`;
-  }).join('');
-  // tfoot
-  const tfoot=document.getElementById("fact-tfoot")||document.getElementById("tfoot");
-  if(tfoot){const net=sumE-sumR;tfoot.innerHTML=`<tr style="font-weight:700;background:var(--border2)"><td colspan="7" style="padding:10px 12px;font-size:13px;">RESULTADO NETO</td><td style="text-align:right;padding:10px 12px;color:${net>=0?'var(--green)':'var(--red)'};font-size:14px;">${net>=0?'+':'-'}${eur(Math.abs(net))}</td></tr>`;}
-}
+function renderFacturas(){const search=(document.getElementById("fact-search")?.value||"").toLowerCase();const anyo=document.getElementById("fact-anio")?.value||"all";const mes=document.getElementById("fact-mes")?.value||"all";let base=DATA.filter(r=>!esF(r));if(anyo!=="all")base=base.filter(r=>(r.fechaCobro||r.fechaFactura||"").startsWith(anyo));if(mes!=="all")base=base.filter(r=>(r.fechaCobro||r.fechaFactura||"").slice(5,7)===mes);const eur=n=>Math.abs(Number(n)||0).toLocaleString("es-ES",{minimumFractionDigits:2,maximumFractionDigits:2})+" €";const sum=(arr,f)=>arr.reduce((s,r)=>s+(f(r)?Math.abs(Number(r.importe)||0):0),0);const recAll=base.filter(r=>r.importe<0),emiAll=base.filter(r=>r.importe>0);$s("fact-r-total",eur(sum(recAll,()=>true)));$s("fact-r-count",recAll.length+(recAll.length===1?" Recibida":" Recibidas"));$s("fact-r-pagado",eur(sum(recAll,r=>r.pagado)));$s("fact-r-pend",eur(sum(recAll,r=>!r.pagado)));$s("fact-e-total",eur(sum(emiAll,()=>true)));$s("fact-e-count",emiAll.length+(emiAll.length===1?" Emitida":" Emitidas"));$s("fact-e-cobrado",eur(sum(emiAll,r=>r.pagado)));$s("fact-e-pend",eur(sum(emiAll,r=>!r.pagado)));$s("fact-tab-rec-count",recAll.length);$s("fact-tab-emi-count",emiAll.length);$s("fact-header-count",base.length+(base.length===1?" factura":" facturas"));let data=base;if(search)data=data.filter(r=>(r.proveedor||"").toLowerCase().includes(search)||(r.cliente||"").toLowerCase().includes(search)||(r.nFactura||"").toLowerCase().includes(search)||(r.obra||"").toLowerCase().includes(search));data.sort((a,b)=>(b.fechaCobro||b.fechaFactura||"").localeCompare(a.fechaCobro||a.fechaFactura||""));const rec=data.filter(r=>r.importe<0),emi=data.filter(r=>r.importe>0);const row=r=>{const est=r.pagado?(r.importe>0?"Cobrada":"Pagada"):(r.importe>0?"Por cobrar":"Por pagar");const cls=r.pagado?(r.importe>0?"g":"b"):(r.importe>0?"o":"r");const fc=(r.fechaCobro||"—").split("-").reverse().join("/");const ff=(r.fechaFactura||"—").split("-").reverse().join("/");const obraCell=r.operativa?`<span style="font-size:11px;font-weight:700;color:var(--orange);background:#FFF3E8;border-radius:4px;padding:2px 7px;">OPERATIVA</span> <span style="color:var(--muted2);font-size:12px;">${esc(r.operativa)}</span>`:esc(r.obra||"—");return`<tr><td><span class="badge ${cls}">${est}</span></td><td style="color:var(--muted2)">${fc}</td><td style="color:var(--muted2)">${ff}</td><td style="font-weight:600">${esc(r.proveedor||r.cliente||"—")}</td><td style="color:var(--blue)">${esc(r.nFactura||"—")}</td><td style="color:var(--muted2)">${obraCell}</td><td style="color:var(--muted2)">${esc(r.tipo||"—")}</td><td class="tr fw7" style="color:${r.importe>=0?"var(--green)":"var(--red)"}">${fmtS(r.importe)}</td></tr>`;};const tb=document.getElementById("fact-tbody");if(tb)tb.innerHTML=rec.slice(0,200).map(row).join("")||`<tr><td colspan="8" style="text-align:center;color:var(--muted2);padding:20px">Sin facturas recibidas en este periodo</td></tr>`;const eb=document.getElementById("fact-emi-tbody");if(eb)eb.innerHTML=emi.slice(0,200).map(row).join("")||`<tr><td colspan="8" style="text-align:center;color:var(--muted2);padding:20px">Sin facturas emitidas en este periodo</td></tr>`;$s("fact-count-tbl","Mostrando "+rec.length+" recibidas");const tf=document.getElementById("fact-tfoot");if(tf)tf.innerHTML=`<tr><td colspan="7">${rec.length} recibidas</td><td class="tr" style="color:var(--red)">${fmtS(rec.reduce((s,r)=>s+r.importe,0))}</td></tr>`;const ef=document.getElementById("fact-emi-tfoot");if(ef)ef.innerHTML=`<tr><td colspan="7">${emi.length} emitidas</td><td class="tr" style="color:var(--green)">${fmtS(emi.reduce((s,r)=>s+r.importe,0))}</td></tr>`;}
 function switchIVATrim(trim,btn){ivaTab=trim;document.querySelectorAll("#fact-iva .tab").forEach(b=>b.classList.remove("active"));btn.classList.add("active");renderIVA(trim);}
 function renderIVA(trim){const meses={1:[1,2,3],2:[4,5,6],3:[7,8,9],4:[10,11,12]}[trim];const data=DATA.filter(r=>!esF(r)).filter(r=>{const m=parseInt((r.fechaCobro||r.fechaFactura||"").slice(5,7));return meses.includes(m);});const rep=data.filter(r=>r.importe>0).reduce((s,r)=>s+r.importe*(parseFloat(r.ivaTipo||21)/100/(1+parseFloat(r.ivaTipo||21)/100)),0);const sop=data.filter(r=>r.importe<0).reduce((s,r)=>s+Math.abs(r.importe)*(parseFloat(r.ivaTipo||21)/100/(1+parseFloat(r.ivaTipo||21)/100)),0);const res=rep-sop;$s("iva-rep",fmt(rep));$s("iva-sop",fmt(sop));const rEl=document.getElementById("iva-res");if(rEl){rEl.textContent=fmt(res);rEl.style.color=res>0?"var(--red)":"var(--green)";}$s("iva-res-sub",(res>0?"A ingresar en Hacienda":"A devolver de Hacienda")+" \u2014 Modelo 303 T"+trim);}
 
@@ -1729,8 +1748,43 @@ function editarContrasena(i){abrirModalContrasena(i);}
 async function guardarContrasena(){const nombre=document.getElementById("pass-nombre")?.value.trim();if(!nombre){alert("El nombre es obligatorio");return;}const entry={nombre,url:document.getElementById("pass-url")?.value.trim()||"",usuario:document.getElementById("pass-usuario")?.value.trim()||"",password:document.getElementById("pass-password")?.value||"",notas:document.getElementById("pass-notas")?.value.trim()||""};const idx=document.getElementById("pass-edit-idx")?.value;if(idx!=="")CONTRASENAS[parseInt(idx)]=entry;else CONTRASENAS.push(entry);await guardarConfig({contrasenas:JSON.stringify(CONTRASENAS)});cerrarModal("modal-contrasena");renderContrasenas();}
 async function eliminarContrasena(i){if(!confirm("Eliminar esta contrase\xf1a?"))return;CONTRASENAS.splice(i,1);await guardarConfig({contrasenas:JSON.stringify(CONTRASENAS)});renderContrasenas();}
 function togglePassModal(){const inp=document.getElementById("pass-password");if(inp)inp.type=inp.type==="password"?"text":"password";}
-function abrirModalNuevaFactura(){["nf-num","nf-contraparte","nf-importe","nf-obra","nf-fechacobro","nf-concepto","nf-partida"].forEach(id=>{const e=document.getElementById(id);if(e)e.value="";});const fe=document.getElementById("nf-fecha");if(fe)fe.value=hoy();const iv=document.getElementById("nf-iva");if(iv)iv.value="21";const pg=document.getElementById("nf-pagado");if(pg)pg.checked=false;const tp=document.getElementById("nf-tipo");if(tp)tp.value="Emitida";const dl=document.getElementById("nf-contraparte-list");if(dl)dl.innerHTML=rosterTrab().map(t=>`<option value="${esc(t.nombre)}"></option>`).join("");abrirModal("modal-nueva-factura");}
-async function guardarFacturaManual(){const tipo=document.getElementById("nf-tipo").value;const cp=document.getElementById("nf-contraparte").value.trim();const imp0=parseFloat(document.getElementById("nf-importe").value);if(isNaN(imp0)||imp0<=0){alert("Introduce un importe v\u00e1lido");return;}if(!cp){alert("Indica el cliente o proveedor");return;}const emit=tipo==="Emitida";const f={tipo,nFactura:document.getElementById("nf-num").value.trim(),fechaFactura:document.getElementById("nf-fecha").value,fechaCobro:document.getElementById("nf-fechacobro").value,obra:document.getElementById("nf-obra").value.trim(),ivaTipo:parseFloat(document.getElementById("nf-iva").value)||21,pagado:document.getElementById("nf-pagado").checked,importe:emit?Math.abs(imp0):-Math.abs(imp0)};f.concepto=document.getElementById("nf-concepto").value.trim();f.partida=document.getElementById("nf-partida").value.trim();if(emit)f.cliente=cp;else f.proveedor=cp;FACTURAS_MANUALES.push(f);DATA.push(f);await guardarConfig({facturas_manuales:JSON.stringify(FACTURAS_MANUALES)});cerrarModal("modal-nueva-factura");renderFacturas();if(typeof renderPanel==="function")renderPanel();}
+function toggleNfOperativa(on){
+  const catWrap=document.getElementById("nf-operativa-cat-wrap");
+  const obraWrap=document.getElementById("nf-obra-wrap");
+  if(catWrap)catWrap.style.display=on?"block":"none";
+  if(obraWrap)obraWrap.style.display=on?"none":"grid";
+  if(!on){const ob=document.getElementById("nf-obra");if(ob)ob.value="";}
+}
+function abrirModalNuevaFactura(){
+  ["nf-num","nf-contraparte","nf-importe","nf-obra","nf-fechacobro","nf-concepto","nf-partida"].forEach(id=>{const e=document.getElementById(id);if(e)e.value="";});
+  const fe=document.getElementById("nf-fecha");if(fe)fe.value=hoy();
+  const iv=document.getElementById("nf-iva");if(iv)iv.value="21";
+  const pg=document.getElementById("nf-pagado");if(pg)pg.checked=false;
+  const tp=document.getElementById("nf-tipo");if(tp)tp.value="Emitida";
+  const op=document.getElementById("nf-operativa");if(op)op.checked=false;
+  toggleNfOperativa(false);
+  const dl=document.getElementById("nf-contraparte-list");if(dl)dl.innerHTML=rosterTrab().map(t=>`<option value="${esc(t.nombre)}"></option>`).join("");
+  abrirModal("modal-nueva-factura");
+}
+async function guardarFacturaManual(){
+  const tipo=document.getElementById("nf-tipo").value;
+  const cp=document.getElementById("nf-contraparte").value.trim();
+  const imp0=parseFloat(document.getElementById("nf-importe").value);
+  if(isNaN(imp0)||imp0<=0){alert("Introduce un importe v\u00e1lido");return;}
+  if(!cp){alert("Indica el cliente o proveedor");return;}
+  const emit=tipo==="Emitida";
+  const esOp=document.getElementById("nf-operativa")?.checked||false;
+  const f={tipo,nFactura:document.getElementById("nf-num").value.trim(),fechaFactura:document.getElementById("nf-fecha").value,fechaCobro:document.getElementById("nf-fechacobro").value,
+    obra:esOp?"":document.getElementById("nf-obra").value.trim(),
+    operativa:esOp?(document.getElementById("nf-operativa-cat")?.value||"Operativa empresarial"):"",
+    ivaTipo:parseFloat(document.getElementById("nf-iva").value)||21,pagado:document.getElementById("nf-pagado").checked,importe:emit?Math.abs(imp0):-Math.abs(imp0)};
+  f.concepto=document.getElementById("nf-concepto").value.trim();
+  f.partida=esOp?"":document.getElementById("nf-partida").value.trim();
+  if(emit)f.cliente=cp;else f.proveedor=cp;
+  FACTURAS_MANUALES.push(f);DATA.push(f);
+  await guardarConfig({facturas_manuales:JSON.stringify(FACTURAS_MANUALES)});
+  cerrarModal("modal-nueva-factura");renderFacturas();if(typeof renderPanel==="function")renderPanel();
+}
 function abrirModal(id){const m=document.getElementById(id);if(m)m.classList.add("open");}
 function cerrarModal(id){const m=document.getElementById(id);if(m)m.classList.remove("open");}
 document.querySelectorAll(".modal-overlay").forEach(m=>{m.addEventListener("click",e=>{if(e.target===m)m.classList.remove("open");});});
@@ -2233,7 +2287,6 @@ function renderVencimientos(){
 }
 // ─── GRÁFICO EVOLUCIÓN MENSUAL ─────────────────────────────
 let graficoMesActual = "anio";
-let graficoAnioActual = new Date().getFullYear();
 function setGraficoMes(mes, el) {
   graficoMesActual = mes;
   document.querySelectorAll("#page-panel .chip").forEach(c => c.classList.remove("active"));
@@ -2245,14 +2298,13 @@ function renderGraficoEvolucion() {
   const emptyEl = document.getElementById("evolucion-empty");
   if (!canvas) return;
   const NOMBRES = ["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"];
-  const anio = graficoAnioActual || new Date().getFullYear();
   const meses = graficoMesActual === "anio"
     ? [1,2,3,4,5,6,7,8,9,10,11,12]
     : [parseInt(graficoMesActual)];
   const ops = DATA.filter(r => !esF(r));
   const datos = meses.map(m => {
-    const ing  = ops.filter(r=>r.importe>0 && parseInt((r.fechaCobro||r.fechaFactura||"").slice(0,4))===anio && parseInt((r.fechaCobro||r.fechaFactura||"").slice(5,7))===m).reduce((s,r)=>s+r.importe,0);
-    const gast = ops.filter(r=>r.importe<0 && parseInt((r.fechaCobro||r.fechaFactura||"").slice(0,4))===anio && parseInt((r.fechaCobro||r.fechaFactura||"").slice(5,7))===m).reduce((s,r)=>s+Math.abs(r.importe),0);
+    const ing = ops.filter(r=>r.importe>0&&parseInt((r.fechaCobro||r.fechaFactura||"").slice(5,7))===m).reduce((s,r)=>s+r.importe,0);
+    const gast = ops.filter(r=>r.importe<0&&parseInt((r.fechaCobro||r.fechaFactura||"").slice(5,7))===m).reduce((s,r)=>s+Math.abs(r.importe),0);
     return { mes: NOMBRES[m-1], ing, gast, res: ing - gast };
   });
   const hayDatos = datos.some(d => d.ing > 0 || d.gast > 0);
@@ -2264,82 +2316,463 @@ function renderGraficoEvolucion() {
   if (emptyEl) emptyEl.style.display = "none";
   canvas.style.display = "";
   const ctx = canvas.getContext("2d");
-  const W = canvas.offsetWidth || 600;
-  const H = canvas.offsetHeight || 320;
+  const W = canvas.offsetWidth || 400;
+  const H = canvas.offsetHeight || 200;
   canvas.width = W; canvas.height = H;
-  const PAD = { top: 28, right: 20, bottom: 36, left: 68 };
+  const PAD = { top: 16, right: 12, bottom: 32, left: 60 };
   const cW = W - PAD.left - PAD.right;
   const cH = H - PAD.top - PAD.bottom;
   const maxVal = Math.max(...datos.map(d => Math.max(d.ing, d.gast)), 1);
   ctx.clearRect(0, 0, W, H);
-
   // Líneas guía
-  const guias = 5;
-  for (let i = 0; i <= guias; i++) {
-    const y = PAD.top + (cH / guias) * i;
-    ctx.strokeStyle = "#F3F4F6"; ctx.lineWidth = 1;
+  ctx.strokeStyle = "#E5E7EB"; ctx.lineWidth = 1;
+  for (let i = 0; i <= 4; i++) {
+    const y = PAD.top + (cH / 4) * i;
     ctx.beginPath(); ctx.moveTo(PAD.left, y); ctx.lineTo(PAD.left + cW, y); ctx.stroke();
-    const val = maxVal * (1 - i / guias);
-    ctx.fillStyle = "#9CA3AF"; ctx.font = "11px Roboto, sans-serif"; ctx.textAlign = "right";
-    ctx.fillText(val >= 1000 ? (val/1000).toFixed(0)+"k" : val.toFixed(0), PAD.left - 8, y + 4);
+    const val = maxVal * (1 - i / 4);
+    ctx.fillStyle = "#9CA3AF"; ctx.font = "10px sans-serif"; ctx.textAlign = "right";
+    ctx.fillText(val >= 1000 ? (val/1000).toFixed(0)+"k" : val.toFixed(0), PAD.left - 6, y + 4);
   }
-
-  // Función para dibujar curva
-  function drawCurve(puntos, color, fillColor) {
-    if (puntos.length < 2) return;
-    ctx.beginPath();
-    ctx.moveTo(puntos[0].x, puntos[0].y);
-    for (let i = 1; i < puntos.length; i++) {
-      const xc = (puntos[i-1].x + puntos[i].x) / 2;
-      ctx.bezierCurveTo(xc, puntos[i-1].y, xc, puntos[i].y, puntos[i].x, puntos[i].y);
-    }
-    // Fill bajo la curva
-    ctx.lineTo(puntos[puntos.length-1].x, PAD.top + cH);
-    ctx.lineTo(puntos[0].x, PAD.top + cH);
-    ctx.closePath();
-    ctx.fillStyle = fillColor;
-    ctx.fill();
-    // Línea
-    ctx.beginPath();
-    ctx.moveTo(puntos[0].x, puntos[0].y);
-    for (let i = 1; i < puntos.length; i++) {
-      const xc = (puntos[i-1].x + puntos[i].x) / 2;
-      ctx.bezierCurveTo(xc, puntos[i-1].y, xc, puntos[i].y, puntos[i].x, puntos[i].y);
-    }
-    ctx.strokeStyle = color; ctx.lineWidth = 2.5; ctx.stroke();
-    // Puntos
-    puntos.forEach(p => {
-      ctx.beginPath(); ctx.arc(p.x, p.y, 4, 0, Math.PI*2);
-      ctx.fillStyle = color; ctx.fill();
-      ctx.strokeStyle = "#fff"; ctx.lineWidth = 1.5; ctx.stroke();
-    });
-  }
-
-  const gap = cW / (meses.length > 1 ? meses.length - 1 : 1);
-  const ptsIng  = datos.map((d, i) => ({ x: PAD.left + gap * i, y: PAD.top + cH - (d.ing  / maxVal) * cH }));
-  const ptsGast = datos.map((d, i) => ({ x: PAD.left + gap * i, y: PAD.top + cH - (d.gast / maxVal) * cH }));
-
-  drawCurve(ptsGast, "#C0392B", "rgba(192,57,43,0.06)");
-  drawCurve(ptsIng,  "#1A7A3F", "rgba(26,122,63,0.08)");
-
-  // Labels meses
+  const barW = Math.min(cW / meses.length * 0.35, 28);
+  const gap = cW / meses.length;
   datos.forEach((d, i) => {
-    const x = PAD.left + gap * i;
-    ctx.fillStyle = "#6B7280"; ctx.font = "11px Roboto, sans-serif"; ctx.textAlign = "center";
+    const x = PAD.left + gap * i + gap / 2;
+    // Barra ingresos
+    const hI = (d.ing / maxVal) * cH;
+    ctx.fillStyle = "#1A7A3F";
+    ctx.beginPath(); ctx.roundRect(x - barW - 2, PAD.top + cH - hI, barW, hI, [3,3,0,0]); ctx.fill();
+    // Barra gastos
+    const hG = (d.gast / maxVal) * cH;
+    ctx.fillStyle = "#C0392B";
+    ctx.beginPath(); ctx.roundRect(x + 2, PAD.top + cH - hG, barW, hG, [3,3,0,0]); ctx.fill();
+    // Label mes
+    ctx.fillStyle = "#6B7280"; ctx.font = "10px sans-serif"; ctx.textAlign = "center";
     ctx.fillText(d.mes, x, H - 8);
+    // Resultado encima
+    if (d.ing > 0 || d.gast > 0) {
+      ctx.fillStyle = d.res >= 0 ? "#1A7A3F" : "#C0392B";
+      ctx.font = "9px sans-serif"; ctx.textAlign = "center";
+      const topY = PAD.top + cH - Math.max(hI, hG) - 4;
+      ctx.fillText(fmtS(d.res).replace(" EUR",""), x, topY);
+    }
   });
-
   // Leyenda
-  const leyendaY = 14;
-  ctx.fillStyle = "#1A7A3F"; ctx.beginPath(); ctx.arc(PAD.left + 8, leyendaY, 5, 0, Math.PI*2); ctx.fill();
-  ctx.fillStyle = "#374151"; ctx.font = "11px Roboto, sans-serif"; ctx.textAlign = "left";
-  ctx.fillText("Ingresos", PAD.left + 18, leyendaY + 4);
-  ctx.fillStyle = "#C0392B"; ctx.beginPath(); ctx.arc(PAD.left + 88, leyendaY, 5, 0, Math.PI*2); ctx.fill();
-  ctx.fillText("Gastos", PAD.left + 98, leyendaY + 4);
+  ctx.fillStyle = "#1A7A3F"; ctx.fillRect(PAD.left, 4, 10, 8);
+  ctx.fillStyle = "#6B7280"; ctx.font = "10px sans-serif"; ctx.textAlign = "left";
+  ctx.fillText("Ingresos", PAD.left + 14, 12);
+  ctx.fillStyle = "#C0392B"; ctx.fillRect(PAD.left + 80, 4, 10, 8);
+  ctx.fillText("Gastos", PAD.left + 94, 12);
 }
 
-
 (function(){const h=hoy(),y=h.slice(0,4),m=h.slice(5,7);const d1=document.getElementById("f-hasta");if(d1)d1.value=h;const hd=document.getElementById("hist-hasta");if(hd)hd.value=h;const hde=document.getElementById("hist-desde");if(hde)hde.value=y+"-01-01";const ia=document.getElementById("inf-anio");if(ia)ia.value=y;const im=document.getElementById("inf-mes");if(im)im.value=String(parseInt(m));})();
+
+// ══ CALENDARIO VACACIONES ══
+const MESES_VAC = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+const DIAS_SEMANA = ["L","M","X","J","V","S","D"];
+
+function vacCalCambiarMes(delta){
+  vacCalMes += delta;
+  if(vacCalMes > 11){ vacCalMes=0; vacCalAnio++; }
+  if(vacCalMes < 0){ vacCalMes=11; vacCalAnio--; }
+  renderVacCal();
+}
+
+function vacCalToggle(trabajadorId, fecha){
+  if(!calAusencias[fecha]) calAusencias[fecha] = {};
+  const actual = calAusencias[fecha][trabajadorId] || "";
+  // Ciclo: "" → "vacaciones" → "libre" → ""
+  const siguiente = actual==="" ? "vacaciones" : actual==="vacaciones" ? "libre" : "";
+  if(siguiente===""){
+    delete calAusencias[fecha][trabajadorId];
+    if(Object.keys(calAusencias[fecha]).length===0) delete calAusencias[fecha];
+  } else {
+    calAusencias[fecha][trabajadorId] = siguiente;
+  }
+  // Guardar en localStorage
+  try{ localStorage.setItem("gestrp_ausencias", JSON.stringify(calAusencias)); }catch(e){}
+  // Guardar en config del Sheet (async, sin bloquear)
+  try{ guardarConfig({cal_ausencias: JSON.stringify(calAusencias)}); }catch(e){}
+  renderVacCal();
+}
+
+function renderVacCal(){
+  const grid=document.getElementById("vac-cal-grid");
+  const titulo=document.getElementById("vac-cal-titulo");
+  if(!grid)return;
+  const MESES_=["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+  if(titulo)titulo.textContent=MESES_[vacCalMes]+" "+vacCalAnio;
+  if(!calAusencias||!Object.keys(calAusencias).length){
+    try{const s=localStorage.getItem("gestrp_ausencias");if(s)calAusencias=JSON.parse(s);}catch(e){}
+  }
+  // Quitar Rocío (equipoId "rocio") del calendario de vacaciones
+  const todosTrabs=typeof rosterTrab==="function"?rosterTrab():USUARIOS.map(u=>({nombre:u.nombre,equipoId:u.equipoId}));
+  const trabs=todosTrabs.filter(t=>t.equipoId!=="rocio");
+  const diasMes=new Date(vacCalAnio,vacCalMes+1,0).getDate();
+  const primerDia=new Date(vacCalAnio,vacCalMes,1).getDay();
+  const offset=primerDia===0?6:primerDia-1; // Lunes=0
+  const pad=n=>String(n).padStart(2,"0");
+  const fmt=d=>`${vacCalAnio}-${pad(vacCalMes+1)}-${pad(d)}`;
+  const esWE=d=>{const dd=new Date(vacCalAnio,vacCalMes,d).getDay();return dd===0||dd===6;};
+  const hoyStr=new Date().toISOString().slice(0,10);
+
+  // Colores por persona
+  const colores=["#C4714A","#2D6A4F","#1D4E6B","#7C3AED","#9B2226"];
+
+  // Estado selección rango
+  const rangoBanner = vacRangoInicio
+    ? `<div style="background:#FFF3EB;border:1.5px solid var(--orange);border-radius:8px;padding:8px 12px;margin-bottom:10px;font-size:12px;color:var(--brown);display:flex;align-items:center;justify-content:space-between;">
+        <span>📅 Desde <strong>${vacRangoInicio}</strong> — haz clic en el día final para aplicar el rango</span>
+        <button onclick="vacRangoInicio=null;renderVacCal();" style="border:none;background:none;cursor:pointer;color:var(--muted2);font-size:16px;padding:0 4px;">×</button>
+       </div>`
+    : "";
+
+  let t=`<div style="font-family:inherit;">${rangoBanner}`;
+  // Cabecera días semana
+  t+=`<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;">`;
+  ["L","M","X","J","V","S","D"].forEach(d=>
+    t+=`<div style="text-align:center;font-size:13px;font-weight:700;color:var(--muted2);padding:6px 0;">${d}</div>`
+  );
+  t+=`</div>`;
+  // Grid de días
+  t+=`<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;">`;
+
+  // Celdas vacías antes del primer día
+  for(let i=0;i<offset;i++)
+    t+=`<div></div>`;
+
+  for(let d=1;d<=diasMes;d++){
+    const f=fmt(d);
+    const we=esWE(d);
+    const esHoy=f===hoyStr;
+    const esInicioRango=f===vacRangoInicio;
+    const ausencias=calAusencias[f]||{};
+
+    // Badges por persona
+    const etqMap={"vacaciones":"VAC","libre":"LIB","baja":"BAJA","formacion":"FORM","otros":"AUS"};
+    let puntos="";
+    trabs.forEach((tr,i)=>{
+      const tipo=(ausencias[tr.equipoId||tr.nombre]||"");
+      if(tipo){
+        const bg=tipo==="vacaciones"?colores[i%colores.length]:colores[i%colores.length]+"99";
+        const nombre=tr.nombre||"?";
+        const etiqueta=etqMap[tipo]||tipo.substring(0,3).toUpperCase();
+        puntos+=`<span style="display:inline-flex;align-items:center;gap:3px;background:${bg};color:#fff;font-size:11px;font-weight:700;padding:2px 7px;border-radius:10px;margin:1px;white-space:nowrap;">${nombre} <span style="opacity:.75;font-size:9px;">${etiqueta}</span></span>`;
+      }
+    });
+
+    const tiposDelDia=Object.values(ausencias);
+    const tieneVac=tiposDelDia.includes("vacaciones");
+    const tieneLib=tiposDelDia.includes("libre");
+    const tieneAus=tiposDelDia.some(t=>t&&t!=="");
+    const bgCell = esInicioRango?"#FFF3EB":esHoy?"var(--orange)":tieneVac?"#FFF0E0":tieneLib?"#ECFDF5":tieneAus?"#F0F0FF":we?"rgba(0,0,0,0.04)":"var(--surface)";
+    const colorNum = esHoy?"#fff":we?"var(--muted2)":"var(--brown)";
+    const borde = esInicioRango?"2px solid var(--orange)":esHoy?"2px solid var(--orange)":tieneVac?"1.5px solid #FDBA74":tieneLib?"1.5px solid #6EE7B7":tieneAus?"1.5px solid #A5B4FC":"1.5px solid var(--border)";
+
+    t+=`<div onclick="vacCalClickDia(${d},'${f}')"
+         style="border:${borde};border-radius:8px;padding:8px;min-height:120px;background:${bgCell};cursor:pointer;display:flex;flex-direction:column;gap:4px;transition:background .1s;"
+         onmouseover="this.style.borderColor='var(--orange)'"
+         onmouseout="this.style.borderColor='${esInicioRango||esHoy?"var(--orange)":"var(--border)"}'">
+      <span style="font-size:15px;font-weight:${esHoy?"700":"600"};color:${colorNum};line-height:1;">${d}</span>
+      <div style="display:flex;flex-wrap:wrap;gap:2px;">${puntos}</div>
+    </div>`;
+  }
+  t+=`</div>`;
+
+  // Leyenda de personas
+  t+=`<div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:14px;padding-top:10px;border-top:1px solid var(--border);">`;
+  trabs.forEach((tr,i)=>{
+    t+=`<span style="display:flex;align-items:center;gap:5px;font-size:13px;color:var(--muted);">
+      <span style="width:12px;height:12px;border-radius:50%;background:${colores[i%colores.length]};display:inline-block;"></span>
+      ${esc(tr.nombre)}
+    </span>`;
+  });
+  t+=`</div></div>`;
+  grid.innerHTML=t;
+}
+
+// Gestión de clicks en el calendario de vacaciones
+// Primer click: si NO hay rango activo → abre popover de día individual
+// Si hay rango activo: aplica el tipo del rango a todos los días entre inicio y fecha
+function vacCalClickDia(dia, fecha){
+  if(vacRangoInicio){
+    // Segundo click: cerrar rango y aplicar
+    const f1=vacRangoInicio<fecha?vacRangoInicio:fecha;
+    const f2=vacRangoInicio<fecha?fecha:vacRangoInicio;
+    // Pedir tipo mediante popup simple
+    const tipo=confirm("¿Vacaciones (Aceptar) o Día libre (Cancelar)?")?"vacaciones":"libre";
+    const todosT=typeof rosterTrab==="function"?rosterTrab():USUARIOS.map(u=>({nombre:u.nombre,equipoId:u.equipoId}));
+    const trabs=todosT.filter(u=>u.equipoId!=="rocio");
+    // Recorrer todos los días del rango
+    let cur=new Date(f1+"T12:00:00");
+    const fin=new Date(f2+"T12:00:00");
+    while(cur<=fin){
+      const iso=cur.toISOString().slice(0,10);
+      if(!calAusencias[iso])calAusencias[iso]={};
+      trabs.forEach(tr=>{
+        const id=tr.equipoId||tr.nombre;
+        calAusencias[iso][id]=tipo;
+      });
+      cur.setDate(cur.getDate()+1);
+    }
+    try{localStorage.setItem("gestrp_ausencias",JSON.stringify(calAusencias));}catch(e){}
+    vacRangoInicio=null;
+    renderVacCal();
+  } else {
+    // Primer click: abrir popover normal para ese día
+    vacCalAbrirDia(dia, fecha);
+  }
+}
+
+function vacCalAbrirDia(dia, fecha){
+  // Cerrar popover anterior
+  const prev=document.getElementById("vac-popover");
+  if(prev)prev.remove();
+  if(!calAusencias[fecha])calAusencias[fecha]={};
+  const todosT=typeof rosterTrab==="function"?rosterTrab():USUARIOS.map(u=>({nombre:u.nombre,equipoId:u.equipoId}));
+  const trabs=todosT.filter(u=>u.equipoId!=="rocio");
+
+  // Cabecera con fecha formateada
+  const [y,m,d]=fecha.split("-");
+  const meses=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+  const fechaLeg=`${parseInt(d)} de ${meses[parseInt(m)-1]} de ${y}`;
+
+  // Filas de equipo con select desplegable corporativo
+  const opMap={"":"Trabajando","vacaciones":"Vacaciones","libre":"Día libre","baja":"Baja / incapacidad","formacion":"Formación","otros":"Otros"};
+  let filas=trabs.map(tr=>{
+    const id=tr.equipoId||tr.nombre;
+    const tipo=(calAusencias[fecha]||{})[id]||"";
+    const opts=Object.entries(opMap).map(([v,l])=>`<option value="${v}"${v===tipo?" selected":""}>${l}</option>`).join("");
+    const initials=esc((tr.nombre||"?")[0].toUpperCase());
+    return `<div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--border2,#f0ece7);">
+      <div style="width:32px;height:32px;border-radius:8px;background:#F3EDE8;color:var(--brown);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">${initials}</div>
+      <div style="flex:1;font-size:13px;font-weight:600;color:var(--brown);">${esc(tr.nombre)}</div>
+      <select onchange="vacCalSetTipoPop('${id}','${fecha}',this.value)"
+        style="border:1.5px solid var(--border);border-radius:6px;padding:5px 8px;font-size:12px;font-family:inherit;color:var(--brown);background:var(--surface);cursor:pointer;outline:none;max-width:160px;">
+        ${opts}
+      </select>
+    </div>`;
+  }).join("");
+
+  const html=`<div id="vac-popover" style="position:fixed;z-index:1100;background:var(--surface,#fff);border:1.5px solid var(--border);border-radius:12px;padding:0;box-shadow:0 12px 32px rgba(0,0,0,0.18);min-width:360px;max-width:420px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 18px 12px;border-bottom:1px solid var(--border);">
+      <div>
+        <div style="font-size:15px;font-weight:800;color:var(--brown);">${fechaLeg}</div>
+        <div style="font-size:12px;color:var(--muted2);margin-top:2px;">Gestión de ausencias del equipo</div>
+      </div>
+      <button onclick="document.getElementById('vac-popover').remove()" style="border:none;background:none;cursor:pointer;font-size:20px;color:var(--muted2);padding:0;line-height:1;">×</button>
+    </div>
+    <div style="padding:12px 18px;">${filas||'<div style="color:var(--muted2);font-size:13px;padding:8px 0;">Sin trabajadores en el equipo</div>'}</div>
+    <div style="display:flex;gap:8px;padding:12px 18px;border-top:1px solid var(--border);">
+      <button onclick="vacRangoInicio='${fecha}';document.getElementById('vac-popover').remove();renderVacCal();"
+        style="flex:1;padding:8px;border:1.5px solid var(--orange);background:transparent;color:var(--orange);border-radius:7px;cursor:pointer;font-size:12px;font-weight:700;">
+        Seleccionar rango
+      </button>
+      <button onclick="vacCalBorrarDia('${fecha}')"
+        style="flex:1;padding:8px;border:1.5px solid var(--red,#c0392b);background:transparent;color:var(--red,#c0392b);border-radius:7px;cursor:pointer;font-size:12px;font-weight:700;">
+        Borrar todo el día
+      </button>
+    </div>
+  </div>`;
+  document.body.insertAdjacentHTML("beforeend",html);
+  const pop=document.getElementById("vac-popover");
+  pop.style.top="50%"; pop.style.left="50%";
+  pop.style.transform="translate(-50%,-50%)";
+  setTimeout(()=>document.addEventListener("click",function h(e){if(!pop.contains(e.target)){pop.remove();document.removeEventListener("click",h);}},true),80);
+}
+
+// Cambio de estado desde el select del popover (no cierra el popover)
+function vacCalSetTipoPop(tid,fecha,tipo){
+  if(!calAusencias[fecha])calAusencias[fecha]={};
+  if(tipo===""){delete calAusencias[fecha][tid];if(!Object.keys(calAusencias[fecha]).length)delete calAusencias[fecha];}
+  else calAusencias[fecha][tid]=tipo;
+  try{localStorage.setItem("gestrp_ausencias",JSON.stringify(calAusencias));}catch(e){}
+  // Re-renderizar sólo el fondo del calendario sin cerrar el popover
+  renderVacCal();
+}
+
+function vacCalSetTipo(tid,fecha,tipo){
+  if(!calAusencias[fecha])calAusencias[fecha]={};
+  if(tipo===""){delete calAusencias[fecha][tid];if(!Object.keys(calAusencias[fecha]).length)delete calAusencias[fecha];}
+  else calAusencias[fecha][tid]=tipo;
+  try{localStorage.setItem("gestrp_ausencias",JSON.stringify(calAusencias));}catch(e){}
+  document.getElementById("vac-popover")?.remove();
+  renderVacCal();
+}
+
+function vacCalBorrarDia(fecha){
+  delete calAusencias[fecha];
+  try{localStorage.setItem("gestrp_ausencias",JSON.stringify(calAusencias));}catch(e){}
+  document.getElementById("vac-popover")?.remove();
+  renderVacCal();
+}
+
+// ──────────────────────────────────────────
+// MODAL AÑADIR AUSENCIA (calendadio vacaciones)
+// ──────────────────────────────────────────
+function abrirModalAusencia(){
+  // Rellenar selector de persona con los trabajadores del calendario (sin Rocío)
+  const todosT=typeof rosterTrab==="function"?rosterTrab():USUARIOS.map(u=>({nombre:u.nombre,equipoId:u.equipoId}));
+  const trabs=todosT.filter(u=>u.equipoId!=="rocio");
+  const sel=document.getElementById("aus-persona");
+  if(sel){
+    sel.innerHTML=`<option value="todos">— Todos el equipo —</option>`;
+    trabs.forEach(t=>{
+      const id=t.equipoId||t.nombre;
+      sel.innerHTML+=`<option value="${id}">${esc(t.nombre)}</option>`;
+    });
+  }
+  // Fecha inicio por defecto = hoy
+  const hoyStr=new Date().toISOString().slice(0,10);
+  const d=document.getElementById("aus-desde");if(d)d.value=hoyStr;
+  const h=document.getElementById("aus-hasta");if(h)h.value="";
+  abrirModal("modal-ausencia");
+}
+
+async function guardarAusencia(){
+  const persona=document.getElementById("aus-persona")?.value||"todos";
+  const tipo=document.getElementById("aus-tipo")?.value||"vacaciones";
+  const desde=document.getElementById("aus-desde")?.value;
+  const hasta=document.getElementById("aus-hasta")?.value||desde;
+  if(!desde){alert("La fecha de inicio es obligatoria");return;}
+
+  const todosT=typeof rosterTrab==="function"?rosterTrab():USUARIOS.map(u=>({nombre:u.nombre,equipoId:u.equipoId}));
+  const trabs=todosT.filter(u=>u.equipoId!=="rocio");
+  const afectados=persona==="todos"?trabs:trabs.filter(t=>(t.equipoId||t.nombre)===persona);
+
+  let cur=new Date(desde+"T12:00:00");
+  const fin=new Date(hasta+"T12:00:00");
+  while(cur<=fin){
+    const iso=cur.toISOString().slice(0,10);
+    if(!calAusencias[iso])calAusencias[iso]={};
+    afectados.forEach(tr=>{
+      const id=tr.equipoId||tr.nombre;
+      calAusencias[iso][id]=tipo;
+    });
+    cur.setDate(cur.getDate()+1);
+  }
+  try{localStorage.setItem("gestrp_ausencias",JSON.stringify(calAusencias));}catch(e){}
+  await guardarConfig({cal_ausencias:JSON.stringify(calAusencias)}).catch(()=>{});
+  cerrarModal("modal-ausencia");
+  renderVacCal();
+}
+
+// ──────────────────────────────────────────
+// INVERSORES
+// ──────────────────────────────────────────
+function renderInversores(){
+  const q=(document.getElementById("inv-search")?.value||"").toLowerCase();
+  const grid=document.getElementById("inv-grid");
+  if(!grid)return;
+  const lista=INVERSORES.filter(p=>(p.nombre||"").toLowerCase().includes(q)||(p.contacto||"").toLowerCase().includes(q));
+  $s("inv-header-count",lista.length+" inversor"+(lista.length===1?"":"es")+" · Capital captado");
+
+  // KPIs
+  const totalAportado=INVERSORES.reduce((s,p)=>s+(Number(p.importe)||0),0);
+  const totalCuota=INVERSORES.filter(p=>p.estado!=="devuelto"&&Number(p.cuota)>0).reduce((s,p)=>s+(Number(p.cuota)||0),0);
+  const activos=INVERSORES.filter(p=>p.estado==="activo"||p.estado==="en_plazo").length;
+  // Capital devuelto = suma de cuota * cuotasPagadas de todos los inversores
+  const totalDevuelto=INVERSORES.reduce((s,p)=>s+(Number(p.cuota)||0)*(Number(p.cuotasPagadas)||0),0);
+  // Capital pendiente = aportado - devuelto (no devolver más de lo aportado)
+  const totalPendiente=Math.max(0,totalAportado-totalDevuelto);
+  const kpis=document.getElementById("inv-kpis");
+  if(kpis) kpis.innerHTML=`
+    <div class="kpi">
+      <div class="kpi-label">Capital captado</div>
+      <div class="kpi-value" style="color:var(--green);">${fmt(totalAportado)}</div>
+      <div class="kpi-sub">Total aportado por inversores</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Capital devuelto</div>
+      <div class="kpi-value" style="color:var(--blue);">${fmt(totalDevuelto)}</div>
+      <div class="kpi-sub">Cuotas pagadas acumuladas</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Capital pendiente</div>
+      <div class="kpi-value" style="color:var(--orange);">${fmt(totalPendiente)}</div>
+      <div class="kpi-sub">Por devolver a inversores</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Cuota mensual</div>
+      <div class="kpi-value" style="color:var(--brown);">${fmt(totalCuota)}</div>
+      <div class="kpi-sub">${activos} acuerdo${activos===1?"":"s"} activo${activos===1?"":"s"}</div>
+    </div>`;
+
+  const ESTADOS={activo:{l:"Activo",c:"g"},devuelto:{l:"Devuelto",c:"b"},en_plazo:{l:"En plazo",c:"o"},vencido:{l:"Vencido",c:"r"}};
+  const MODALS={prestamo:"Préstamo",participacion:"Participación en beneficios",donacion:"Donación / a fondo perdido",otro:"Otro"};
+
+  const cards=lista.map((p,i)=>{
+    const est=ESTADOS[p.estado||"activo"]||{l:p.estado||"Activo",c:"g"};
+    const cuotaInfo=Number(p.cuota)>0?`${fmt(Number(p.cuota))}/mes × ${p.ncuotas||"?"} cuotas`:"Sin cuotas";
+    const venc=p.vencimiento?`Vence: ${p.vencimiento.split("-").reverse().join("/")}`:p.ncuotas?"":"Sin vencimiento";
+    const progreso=p.ncuotas&&p.cuotasPagadas?Math.min(100,Math.round((Number(p.cuotasPagadas)/Number(p.ncuotas))*100)):null;
+    return`<div class="pc">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+        <div class="pc-name" style="margin-bottom:0;">${esc(p.nombre||"—")}</div>
+        <span class="badge ${est.c}">${est.l}</span>
+      </div>
+      <div style="margin-bottom:6px"><div class="pc-fl">Contacto</div><div class="pc-fv">${esc(p.contacto||"—")}</div></div>
+      <div style="margin-bottom:6px"><div class="pc-fl">Importe</div><div class="pc-fv" style="font-size:18px;font-weight:800;color:var(--green);">${fmt(Number(p.importe)||0)}</div></div>
+      <div style="margin-bottom:6px"><div class="pc-fl">Fecha</div><div class="pc-fv">${(p.fecha||"—").split("-").reverse().join("/")}</div></div>
+      <div style="margin-bottom:6px"><div class="pc-fl">Modalidad</div><div class="pc-fv">${MODALS[p.modalidad]||p.modalidad||"—"}</div></div>
+      ${Number(p.interes)>0?`<div style="margin-bottom:6px"><div class="pc-fl">Interés anual</div><div class="pc-fv">${p.interes}%</div></div>`:""}
+      <div style="margin-bottom:6px"><div class="pc-fl">Cuotas</div><div class="pc-fv">${cuotaInfo}</div></div>
+      ${venc?`<div style="margin-bottom:6px"><div class="pc-fl">Vencimiento</div><div class="pc-fv">${venc}</div></div>`:""}
+      ${p.garantias?`<div style="margin-bottom:6px"><div class="pc-fl">Garantías</div><div class="pc-fv">${esc(p.garantias)}</div></div>`:""}
+      ${p.notas?`<div class="pc-notes">${esc(p.notas)}</div>`:""}
+      <div class="pc-act">
+        <button class="btn btn-o" style="padding:6px 12px;font-size:14px" onclick="editarInversor(${i})">Editar</button>
+        <button class="btn btn-o" style="padding:6px 12px;font-size:14px;color:var(--red)" onclick="eliminarInversor(${i})">Eliminar</button>
+      </div>
+    </div>`;
+  }).join("");
+  grid.innerHTML=cards+`<div class="pass-add" onclick="abrirModalInversor()"><div style="font-size:20px;color:var(--muted);font-weight:300">+</div><div class="pass-add-txt">Añadir inversor</div></div>`;
+}
+
+function abrirModalInversor(idx=null){
+  document.getElementById("inv-edit-idx").value=idx??"";
+  $s("modal-inv-titulo",idx!==null?"Editar inversor":"Nuevo inversor");
+  const p=idx!==null?(INVERSORES[idx]||{}):{};
+  ["nombre","contacto","importe","fecha","cuota","ncuotas","interes","vencimiento","garantias","notas"].forEach(k=>{
+    const el=document.getElementById("inv-"+k);if(el)el.value=p[k]||"";
+  });
+  const mo=document.getElementById("inv-modalidad");if(mo)mo.value=p.modalidad||"prestamo";
+  const es=document.getElementById("inv-estado");if(es)es.value=p.estado||"activo";
+  abrirModal("modal-inversor");
+}
+function editarInversor(i){abrirModalInversor(i);}
+async function guardarInversor(){
+  const nombre=document.getElementById("inv-nombre")?.value.trim();
+  if(!nombre){alert("El nombre del inversor es obligatorio");return;}
+  const entry={
+    nombre,
+    contacto:document.getElementById("inv-contacto")?.value.trim()||"",
+    importe:document.getElementById("inv-importe")?.value||"",
+    fecha:document.getElementById("inv-fecha")?.value||"",
+    modalidad:document.getElementById("inv-modalidad")?.value||"prestamo",
+    estado:document.getElementById("inv-estado")?.value||"activo",
+    cuota:document.getElementById("inv-cuota")?.value||"",
+    ncuotas:document.getElementById("inv-ncuotas")?.value||"",
+    interes:document.getElementById("inv-interes")?.value||"",
+    vencimiento:document.getElementById("inv-vencimiento")?.value||"",
+    garantias:document.getElementById("inv-garantias")?.value.trim()||"",
+    notas:document.getElementById("inv-notas")?.value.trim()||""
+  };
+  const idx=document.getElementById("inv-edit-idx")?.value;
+  if(idx!=="")INVERSORES[parseInt(idx)]=entry;else INVERSORES.push(entry);
+  try{localStorage.setItem("gestrp_inversores",JSON.stringify(INVERSORES));}catch(e){}
+  await guardarConfig({inversores:JSON.stringify(INVERSORES)}).catch(()=>{});
+  cerrarModal("modal-inversor");
+  renderInversores();
+}
+async function eliminarInversor(i){
+  if(!confirm("¿Eliminar este inversor?"))return;
+  INVERSORES.splice(i,1);
+  try{localStorage.setItem("gestrp_inversores",JSON.stringify(INVERSORES));}catch(e){}
+  await guardarConfig({inversores:JSON.stringify(INVERSORES)}).catch(()=>{});
+  renderInversores();
+}
+
 </script>
+
 </body>
 </html>
