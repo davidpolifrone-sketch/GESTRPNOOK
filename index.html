@@ -1384,6 +1384,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-s
 
 <script>
 const SHEETS_URL="/.netlify/functions/sheets";
+let SHEETS_ENABLED=true; // se comprueba con ping al arrancar
 const USUARIOS=[{user:"david.polifrone",pass:"gestiorpnook1",nombre:"David",rol:"admin",equipoId:"david"},{user:"carla.saavedra",pass:"gestiorpnook2",nombre:"Rocío",rol:"admin",equipoId:"rocio"},{user:"martin.noguera",pass:"oficin@tecnica1",nombre:"Mart\xedn",rol:"equipo",equipoId:"martin"},{user:"angel.lara",pass:"oficin@tecnica2",nombre:"\xc1ngel",rol:"equipo",equipoId:"angel"}];
 const EQUIPO=[{id:"david",nombre:"David",color:"#4A2E1B",bg:"#F3EDE8"},{id:"rocio",nombre:"Rocío",color:"#4A2E1B",bg:"#F3EDE8"},{id:"martin",nombre:"Martín",color:"#4A2E1B",bg:"#F3EDE8"},{id:"angel",nombre:"Ángel",color:"#4A2E1B",bg:"#F3EDE8"}];
 const TIPOS_EVENTO=[{id:"visita",label:"Visita a obra",color:"#DCFCE7",accent:"#16A34A"},{id:"reunion",label:"Reuni\xf3n",color:"#E0F2FE",accent:"#0284C7"},{id:"formacion",label:"Formaci\xf3n",color:"#FEF9C3",accent:"#CA8A04"},{id:"ausencia",label:"Ausencia",color:"#FCE7F3",accent:"#DB2777"},{id:"otro",label:"Otro",color:"#F3EDE8",accent:"#7A5C44"}];
@@ -1410,14 +1411,16 @@ function esF(r){const t=(r.tipo||"").toUpperCase();return t.includes("SOCIO")||t
 function obraMap(ay){const m={};DATA.filter(r=>!esF(r)).forEach(r=>{const o=(r.obra||"").trim();if(!o)return;if(ay&&ay!=="all"){const a=(r.fechaCobro||r.fechaFactura||"").slice(0,4);if(a!==ay)return;}if(!m[o])m[o]={ing:0,gast:0,facs:[]};if(r.importe>0)m[o].ing+=r.importe;else m[o].gast+=Math.abs(r.importe);m[o].facs.push(r);});return m;}
 function dataF(){return DATA.filter(r=>{const f=r.fechaCobro||r.fechaFactura||"";if(filtroDesde&&f&&f<filtroDesde)return false;if(filtroHasta&&f&&f>filtroHasta)return false;return true;});}
 function setSB(msg,tipo){const b=document.getElementById("sync-bar");b.textContent=msg;b.className=tipo||"";b.style.display=msg?"":"none";}
-async function guardarConfig(obj){try{await fetch(SHEETS_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"saveConfig",config:obj})});}catch(e){console.warn(e);}}
+async function guardarConfig(obj){if(!SHEETS_ENABLED)return;try{await fetch(SHEETS_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"saveConfig",config:obj})});}catch(e){console.warn(e);}}
 // === cargarDatos: reconstruida. Lee config (setConfig es simétrico) + facturas del Sheet. ===
 async function cargarDatos(){
   setSB("Cargando datos…","loading");
   const pj=(o,k,def)=>{try{const v=o?o[k]:null;if(v==null||v==="")return def;return typeof v==="string"?JSON.parse(v):v;}catch(e){return def;}};
+  // Ping para ver si Sheets está configurado antes de hacer llamadas
+  try{const rp=await fetch(SHEETS_URL+"?action=ping");if(rp&&rp.ok){const jp=await rp.json();SHEETS_ENABLED=!!jp.hasUrl;}else{SHEETS_ENABLED=false;}}catch(e){SHEETS_ENABLED=false;}
   try{
     let cfg={};
-    try{const r1=await fetch(SHEETS_URL+"?action=getConfig");if(r1&&r1.ok){const j1=await r1.json();cfg=j1.config||j1||{};}}catch(e){console.warn("getConfig:",e);}
+    if(SHEETS_ENABLED){try{const r1=await fetch(SHEETS_URL+"?action=getConfig");if(r1&&r1.ok){const j1=await r1.json();cfg=j1.config||j1||{};}}catch(e){console.warn("getConfig:",e);}}
     CONTRASENAS=pj(cfg,"contrasenas",[]);INVERSORES=pj(cfg,"inversores",[]);PROYECTOS=pj(cfg,"proyectos",[]);FACTURAS_MANUALES=pj(cfg,"facturas_manuales",[]);
     PROY_PRESUPUESTOS=pj(cfg,"presupuestos_obra",{});PROY_FACTURAS=pj(cfg,"pagos_obra",{});PROY_GASTOS=pj(cfg,"gastos_obra",{});
     PROY_PLANNING=pj(cfg,"planning_obra",{});PROVEEDORES=pj(cfg,"proveedores",[]);TRABAJADORES=pj(cfg,"trabajadores",[]);
@@ -1429,7 +1432,7 @@ async function cargarDatos(){
     if(!CONTRASENAS.length){try{const lc=localStorage.getItem("gestrp_contrasenas");if(lc)CONTRASENAS=JSON.parse(lc);}catch(e){}}
     if(!INVERSORES.length){try{const li=localStorage.getItem("gestrp_inversores");if(li)INVERSORES=JSON.parse(li);}catch(e){}}
     let rows=[];
-    try{const r2=await fetch(SHEETS_URL+"?action=getAll");if(r2&&r2.ok){const j2=await r2.json();rows=j2.rows||j2.facturas||(Array.isArray(j2)?j2:[]);}}catch(e){console.warn("getAll:",e);}
+    if(SHEETS_ENABLED){try{const r2=await fetch(SHEETS_URL+"?action=getAll");if(r2&&r2.ok){const j2=await r2.json();rows=j2.rows||j2.facturas||(Array.isArray(j2)?j2:[]);}}catch(e){console.warn("getAll:",e);}}
     DATA=rows.map(r=>({...r,importe:Number(r.importe)||0,pagado:r.pagado===true||String(r.pagado).toUpperCase()==="TRUE",nFactura:r.nFactura||r.nFactura||"",fechaCobro:r.fechaCobro||"",fechaFactura:r.fechaFactura||"",proveedor:r.proveedor||"",cliente:r.cliente||"",obra:r.obra||"",tipo:r.tipo||"",gestoria:r.gestoria||"",concepto:r.concepto||""}));
     if(FACTURAS_MANUALES.length)DATA=DATA.concat(FACTURAS_MANUALES);
     renderPaginaActual();
@@ -1647,8 +1650,25 @@ function renderAlertas(ops){
 }
 function renderVacaciones(){
   const h=hoy();const gr={};
-  Object.entries(calAusencias).sort().forEach(([f,ps])=>{ps.forEach(pid=>{if(!gr[pid])gr[pid]=[];const last=gr[pid][gr[pid].length-1];const fn=new Date(f);fn.setDate(fn.getDate()-1);if(last&&last.hasta>=fn.toISOString().slice(0,10))last.hasta=f;else gr[pid].push({desde:f,hasta:f});});});
-  const fut=[];Object.entries(gr).forEach(([pid,ps])=>{ps.filter(p=>p.hasta>=h).forEach(p=>{const per=EQUIPO.find(e=>e.id===pid);if(per)fut.push({...p,nombre:per.nombre,color:per.color});});});
+  // calAusencias format: { "YYYY-MM-DD": { "personId": "tipo" } }
+  Object.entries(calAusencias).sort().forEach(([f,personas])=>{
+    if(!personas||typeof personas!=="object"||Array.isArray(personas))return;
+    Object.entries(personas).forEach(([pid,tipo])=>{
+      if(tipo!=="vacaciones"&&tipo!=="libre")return;
+      if(!gr[pid])gr[pid]=[];
+      const last=gr[pid][gr[pid].length-1];
+      const fn=new Date(f);fn.setDate(fn.getDate()-1);
+      if(last&&last.hasta>=fn.toISOString().slice(0,10))last.hasta=f;
+      else gr[pid].push({desde:f,hasta:f,tipo});
+    });
+  });
+  const fut=[];
+  Object.entries(gr).forEach(([pid,ps])=>{
+    ps.filter(p=>p.hasta>=h).forEach(p=>{
+      const per=rosterTrab().find(e=>(e.equipoId||e.nombre)===pid||e.nombre===pid);
+      if(per)fut.push({...p,nombre:per.nombre});
+    });
+  });
   fut.sort((a,b)=>a.desde.localeCompare(b.desde));
   const el=document.getElementById("vacaciones-list");if(!el)return;
   if(!fut.length){el.innerHTML='<div class="empty"><div class="empty-txt">Sin vacaciones pr\xf3ximas</div></div>';return;}
