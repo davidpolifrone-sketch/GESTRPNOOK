@@ -1416,11 +1416,15 @@ async function guardarConfig(obj){if(!SHEETS_ENABLED)return;try{await fetch(SHEE
 async function cargarDatos(){
   setSB("Cargando datos…","loading");
   const pj=(o,k,def)=>{try{const v=o?o[k]:null;if(v==null||v==="")return def;return typeof v==="string"?JSON.parse(v):v;}catch(e){return def;}};
-  // Ping para ver si Sheets está configurado antes de hacer llamadas
-  try{const rp=await fetch(SHEETS_URL+"?action=ping");if(rp&&rp.ok){const jp=await rp.json();SHEETS_ENABLED=!!jp.hasUrl;}else{SHEETS_ENABLED=false;}}catch(e){SHEETS_ENABLED=false;}
+  // Ping silencioso — desactiva Sheets si no hay función o no devuelve JSON válido
+  try{
+    const rp=await fetch(SHEETS_URL+"?action=ping");
+    const txt=await rp.text();
+    try{const jp=JSON.parse(txt);SHEETS_ENABLED=!!jp.hasUrl;}catch(e){SHEETS_ENABLED=false;}
+  }catch(e){SHEETS_ENABLED=false;}
   try{
     let cfg={};
-    if(SHEETS_ENABLED){try{const r1=await fetch(SHEETS_URL+"?action=getConfig");if(r1&&r1.ok){const j1=await r1.json();cfg=j1.config||j1||{};}}catch(e){console.warn("getConfig:",e);}}
+    if(SHEETS_ENABLED){try{const r1=await fetch(SHEETS_URL+"?action=getConfig");const t1=await r1.text();try{const j1=JSON.parse(t1);cfg=j1.config||j1||{};}catch(e){console.warn("getConfig JSON:",e);}}catch(e){console.warn("getConfig:",e);}}
     CONTRASENAS=pj(cfg,"contrasenas",[]);INVERSORES=pj(cfg,"inversores",[]);PROYECTOS=pj(cfg,"proyectos",[]);FACTURAS_MANUALES=pj(cfg,"facturas_manuales",[]);
     PROY_PRESUPUESTOS=pj(cfg,"presupuestos_obra",{});PROY_FACTURAS=pj(cfg,"pagos_obra",{});PROY_GASTOS=pj(cfg,"gastos_obra",{});
     PROY_PLANNING=pj(cfg,"planning_obra",{});PROVEEDORES=pj(cfg,"proveedores",[]);TRABAJADORES=pj(cfg,"trabajadores",[]);
@@ -1432,7 +1436,7 @@ async function cargarDatos(){
     if(!CONTRASENAS.length){try{const lc=localStorage.getItem("gestrp_contrasenas");if(lc)CONTRASENAS=JSON.parse(lc);}catch(e){}}
     if(!INVERSORES.length){try{const li=localStorage.getItem("gestrp_inversores");if(li)INVERSORES=JSON.parse(li);}catch(e){}}
     let rows=[];
-    if(SHEETS_ENABLED){try{const r2=await fetch(SHEETS_URL+"?action=getAll");if(r2&&r2.ok){const j2=await r2.json();rows=j2.rows||j2.facturas||(Array.isArray(j2)?j2:[]);}}catch(e){console.warn("getAll:",e);}}
+    if(SHEETS_ENABLED){try{const r2=await fetch(SHEETS_URL+"?action=getAll");const t2=await r2.text();try{const j2=JSON.parse(t2);rows=j2.rows||j2.facturas||(Array.isArray(j2)?j2:[]);}catch(e){console.warn("getAll JSON:",e);}}catch(e){console.warn("getAll:",e);}}
     DATA=rows.map(r=>({...r,importe:Number(r.importe)||0,pagado:r.pagado===true||String(r.pagado).toUpperCase()==="TRUE",nFactura:r.nFactura||r.nFactura||"",fechaCobro:r.fechaCobro||"",fechaFactura:r.fechaFactura||"",proveedor:r.proveedor||"",cliente:r.cliente||"",obra:r.obra||"",tipo:r.tipo||"",gestoria:r.gestoria||"",concepto:r.concepto||""}));
     if(FACTURAS_MANUALES.length)DATA=DATA.concat(FACTURAS_MANUALES);
     renderPaginaActual();
