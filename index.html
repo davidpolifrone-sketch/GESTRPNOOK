@@ -1411,17 +1411,41 @@ function esF(r){const t=(r.tipo||"").toUpperCase();return t.includes("SOCIO")||t
 function obraMap(ay){const m={};DATA.filter(r=>!esF(r)).forEach(r=>{const o=(r.obra||"").trim();if(!o)return;if(ay&&ay!=="all"){const a=(r.fechaCobro||r.fechaFactura||"").slice(0,4);if(a!==ay)return;}if(!m[o])m[o]={ing:0,gast:0,facs:[]};if(r.importe>0)m[o].ing+=r.importe;else m[o].gast+=Math.abs(r.importe);m[o].facs.push(r);});return m;}
 function dataF(){return DATA.filter(r=>{const f=r.fechaCobro||r.fechaFactura||"";if(filtroDesde&&f&&f<filtroDesde)return false;if(filtroHasta&&f&&f>filtroHasta)return false;return true;});}
 function setSB(msg,tipo){const b=document.getElementById("sync-bar");b.textContent=msg;b.className=tipo||"";b.style.display=msg?"":"none";}
-async function guardarConfig(obj){if(!SHEETS_ENABLED)return;try{await fetch(SHEETS_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"saveConfig",config:obj})});}catch(e){console.warn(e);}}
+async function guardarConfig(obj){
+  // Siempre guardar en localStorage como fuente primaria
+  Object.entries(obj).forEach(([k,v])=>{try{localStorage.setItem("gestrp_"+k,typeof v==="string"?v:JSON.stringify(v));}catch(e){}});
+  // Si Sheets está activo, sincronizar también
+  if(!SHEETS_ENABLED)return;
+  try{await fetch(SHEETS_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"saveConfig",config:obj})});}catch(e){console.warn(e);}
+}
 // === cargarDatos: reconstruida. Lee config (setConfig es simétrico) + facturas del Sheet. ===
 async function cargarDatos(){
   setSB("Cargando datos…","loading");
   const pj=(o,k,def)=>{try{const v=o?o[k]:null;if(v==null||v==="")return def;return typeof v==="string"?JSON.parse(v):v;}catch(e){return def;}};
-  // Ping silencioso — desactiva Sheets si no hay función o no devuelve JSON válido
+  // Ping silencioso — desactiva Sheets si la función no existe o no devuelve JSON
   try{
     const rp=await fetch(SHEETS_URL+"?action=ping");
     const txt=await rp.text();
-    try{const jp=JSON.parse(txt);SHEETS_ENABLED=!!jp.hasUrl;}catch(e){SHEETS_ENABLED=false;}
+    try{const jp=JSON.parse(txt);SHEETS_ENABLED=!!jp.hasUrl;}catch(e){SHEETS_ENABLED=false;console.info("Sheets no disponible, usando localStorage");}
   }catch(e){SHEETS_ENABLED=false;}
+  if(!SHEETS_ENABLED){
+    // Cargar todo desde localStorage directamente
+    const pjL=(k,def)=>{try{const v=localStorage.getItem(k);return v?JSON.parse(v):def;}catch(e){return def;}};
+    CONTRASENAS=pjL("gestrp_contrasenas",[]);INVERSORES=pjL("gestrp_inversores",[]);
+    PROYECTOS=pjL("gestrp_proyectos",[]);FACTURAS_MANUALES=pjL("gestrp_facturas_manuales",[]);
+    PROY_PRESUPUESTOS=pjL("gestrp_presupuestos_obra",{});PROY_FACTURAS=pjL("gestrp_pagos_obra",{});
+    PROY_GASTOS=pjL("gestrp_gastos_obra",{});PROY_PLANNING=pjL("gestrp_planning_obra",{});
+    PROVEEDORES=pjL("gestrp_proveedores",[]);TRABAJADORES=pjL("gestrp_trabajadores",[]);
+    PAGOS_TRAB=pjL("gestrp_pagos_trabajadores",[]);FICHAJES=pjL("gestrp_fichajes",[]);
+    CONTROLES=pjL("gestrp_controles_obra",{});PREVISIONES=pjL("gestrp_previsiones",[]);
+    calAusencias=pjL("gestrp_cal_ausencias_v2",{});CAL_EVENTOS=pjL("gestrp_cal_eventos",[]);
+    FESTIVOS_MANUALES=pjL("gestrp_festivos_manuales",[]);
+    DATA=[...FACTURAS_MANUALES];
+    renderPaginaActual();
+    setSB(DATA.length?"Datos locales · "+DATA.length+" facturas":"Sin facturas","ok");
+    if(DATA.length)setTimeout(()=>setSB("",""),3000);
+    return;
+  }
   try{
     let cfg={};
     if(SHEETS_ENABLED){try{const r1=await fetch(SHEETS_URL+"?action=getConfig");const t1=await r1.text();try{const j1=JSON.parse(t1);cfg=j1.config||j1||{};}catch(e){console.warn("getConfig JSON:",e);}}catch(e){console.warn("getConfig:",e);}}
